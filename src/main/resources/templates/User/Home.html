@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Afnai-Landingpage</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" th:href="@{~/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{~/css/magnific-popup.css}">
+    <link rel="stylesheet" th:href="@{~/css/font-awesome.min.css}">
+
+    <!-- MAIN CSS (style) -->
+    <link rel="stylesheet" th:href="@{~/css/style.css}">
+</head>
+<body>
+
+<!-- PRE LOADER -->
+<section class="preloader">
+    <div class="spinner">
+        <span class="spinner-rotate"></span>
+    </div>
+</section>
+
+
+<!-- MENU -->
+<section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon icon-bar"></span>
+                <span class="icon icon-bar"></span>
+                <span class="icon icon-bar"></span>
+            </button>
+
+            <!-- lOGO TEXT HERE -->
+            <a href="#" class="navbar-brand"><img th:src="@{~/img/A1.png}" class="img-responsive" alt="">
+            </a>
+        </div>
+
+        <!-- MENU LINKS -->
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-nav-first">
+                <li><a href="#home" class="smoothScroll">Home</a></li>
+                <li><a href="#about" class="smoothScroll">About</a></li>
+                <li><a href="#blog" class="smoothScroll">Blog</a></li>
+                <li><a href="#work" class="smoothScroll">Our Work</a></li>
+                <li><a href="#contact" class="smoothScroll">Contacts</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="https://www.facebook.com/iprin.wagle.77"><i class="fa fa-facebook-square"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com/rabi_wagle88/?next=%2F"><i class="fa fa-instagram"></i></a></li>
+                <li class="section-btn"><a th:href="@{~/login}" >Login</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+<!-- HOME -->
+<section id="home" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6 col-sm-12">
+                <div class="home-info">
+                    <h1>We have beautiful houses for all .
+                    </h1>
+                    <h1>
+                        उत्तम घर छान्नुहोस् | खुशीसाथ बाँच्नुहोस्
+                    </h1>
+                    <a href="#about" class="btn section-btn smoothScroll">Scrool Down</a>
+                    <span>
+                                   CALL US (+977) 9811529654
+                                   <small>For any inquiry</small>
+                              </span>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-12">
+                <div class="home-video">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/vhHm0OZhmYI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ABOUT -->
+<section id="about" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-5 col-sm-6">
+                <div class="about-info">
+                    <div class="section-title">
+                        <h2>About Us</h2>
+                        <span class="line-bar">...</span>
+                    </div>
+                    <p>We will provide a valuable service to buyers. Our website allows home sellers to contact us and reach a wide audience of potential buyers. The website provides a platform for buyers to showcase their intrest for future house </p>
+                    <p>Overall, Our house seller website is a valuable resource for home buyers , making the process of buying homes more efficient and convenient.</p>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="about-info skill-thumb">
+
+                    <strong>Tradational Design</strong>
+                    <span class="pull-right">85%</span>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%;"></div>
+                    </div>
+
+                    <strong>Modern Design</strong>
+                    <span class="pull-right">90%</span>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>
+                    </div>
+
+                    <strong>Luxurious</strong>
+                    <span class="pull-right">75%</span>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div>
+                    </div>
+
+                    <strong>Palace Design</strong>
+                    <span class="pull-right">70%</span>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-12">
+                <div class="about-image">
+                    <img th:src="@{~/img/rabi.jpg}" class="img-responsive" alt="">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- House Details -->
+<section id="blog" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12">
+                <div class="section-title">
+                    <h2>Choose Your City</h2>
+                    <span class="line-bar">...</span>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6">
+                <!-- BLOG THUMB -->
+                <div class="media blog-thumb">
+                    <div class="media-object media-left">
+                        <a th:href="@{~/login}"><img th:src="@{~/img/.jpg}" class="img-responsive" alt=""></a>
+                    </div>
+                    <div class="media-body blog-info">
+                        <small><i class="fa fa-clock-o"></i> December 22, 2017</small>
+                        <h3><a href="https://en.wikipedia.org/wiki/Kathmandu">Kathmandu</a></h3>
+                        <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
+                        <a th:href="@{~/login}" class="btn section-btn">View More</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6">
+                <!-- BLOG THUMB -->
+                <div class="media blog-thumb">
+                    <div class="media-object media-left">
+                        <a th:href="@{~/login}"><img th:src="@{~/img/blog-image2.jpg}" class="img-responsive" alt=""></a>
+                    </div>
+                    <div class="media-body blog-info">
+                        <small><i class="fa fa-clock-o"></i> December 18, 2017</small>
+                        <h3><a th:href="@{~/login}">woman sportwear.</a></h3>
+                        <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
+                        <a th:href="@{~/login}" class="btn section-btn">Read more</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6">
+                <!-- BLOG THUMB -->
+                <div class="media blog-thumb">
+                    <div class="media-object media-left">
+                        <a th:href="@{~/login}"><img th:src="@{~/img/blog-image3.jpg}" class="img-responsive" alt=""></a>
+                    </div>
+                    <div class="media-body blog-info">
+                        <small><i class="fa fa-clock-o"></i> December 14, 2017</small>
+                        <h3><a th:href="@{~/login}">new creative fashion.</a></h3>
+                        <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
+                        <a th:href="@{~/login}" class="btn section-btn">Read article</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6">
+                <!-- BLOG THUMB -->
+                <div class="media blog-thumb">
+                    <div class="media-object media-left">
+                        <a th:href="@{~/property.html}"><img th:src="@{~/img/blog-image4.jpg}" class="img-responsive" alt=""></a>
+                    </div>
+                    <div class="media-body blog-info">
+                        <small><i class="fa fa-clock-o"></i> December 10, 2017</small>
+                        <h3><a th:href="@{~/property.html}">minimalist design trend in 2018.</a></h3>
+                        <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
+                        <a th:href="@{~/login}" class="btn section-btn">View Detail</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Design And City -->
+<section id="work" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12">
+                <div class="section-title">
+                    <h2>House Design</h2>
+                    <span class="line-bar">...</span>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <!-- WORK THUMB -->
+                <div class="work-thumb">
+                    <a th:href="@{~/img/design1.jpg}" class="image-popup">
+                        <img th:src="@{~/img/design1.jpg}" class="img-responsive" alt="Work">
+
+                        <div class="work-info">
+                            <h3>Single Storey</h3>
+                            <small>Katmandu,Dillibazar</small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <!-- WORK THUMB -->
+                <div class="work-thumb">
+                    <a th:href="@{~/img/dessgin2.jpg}" class="image-popup">
+                        <img th:src="@{~/img/dessgin2.jpg}" class="img-responsive" alt="Work">
+
+                        <div class="work-info">
+                            <h3>Fantabulous</h3>
+                            <small>Bhaisapati,Lalitpur</small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <!-- WORK THUMB -->
+                <div class="work-thumb">
+                    <a th:href="@{~/img/design3.jpg}" class="image-popup">
+                        <img th:src="@{~/img/design3.jpg}" class="img-responsive" alt="Work">
+
+                        <div class="work-info">
+                            <h3>Nepali Design</h3>
+                            <small>Pokhara,Pame</small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <!-- WORK THUMB -->
+                <div class="work-thumb">
+                    <a th:href="@{~/img/design4.jpg}" class="image-popup">
+                        <img th:src="@{~/img/design4.jpg}" class="img-responsive" alt="Work">
+
+                        <div class="work-info">
+                            <h3>Modern</h3>
+                            <small>Butwal,Deepnagar</small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12">
+                <div class="section-title">
+                    <h2>Contact us</h2>
+                    <span class="line-bar">...</span>
+                </div>
+            </div>
+
+<!--            Your Feedback demo-->
+
+
+            <div class="col-md-8 col-sm-8">
+
+                <!-- CONTACT FORM HERE -->
+                <form id="contact-form" role="form" action="#" method="post">
+                    <div class="col-md-6 col-sm-6">
+                        <input type="text" class="form-control" placeholder="Full Name" id="cf-name" name="cf-name" required="">
+                    </div>
+
+                    <div class="col-md-6 col-sm-6">
+                        <input type="email" class="form-control" placeholder="Your Email" id="cf-email" name="cf-email" required="">
+                    </div>
+
+                    <div class="col-md-6 col-sm-6">
+                        <input type="tel" class="form-control" placeholder="Your Phone" id="cf-number" name="cf-number" required="">
+                    </div>
+
+                    <div class="col-md-6 col-sm-6">
+                        <select class="form-control" id="cf-budgets" name="cf-budgets">
+                            <option>Budget Level</option>
+                            <option>25 to 45lakhs</option>
+                            <option>45 to 60lakhs</option>
+                            <option>60to 1Cr</option>
+                            <option>1 to 1.5Cr</option>
+                            <option>1.5 to 3Cr</option>
+                            <option>3cr or more</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12">
+                        <textarea class="form-control" rows="6" placeholder="Your requirements" id="cf-message" name="cf-message" required=""></textarea>
+                    </div>
+
+                    <div class="col-md-4 col-sm-12">
+                        <input type="submit" class="form-control" name="submit" value="Send Message">
+                    </div>
+
+                </form>
+            </div>
+
+
+
+
+            <div class="col-md-4 col-sm-4">
+                <div class="google-map">
+
+<!--                             Go to Google Maps-->
+
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7064.782628443044!2d85.33000208209073!3d27.705201810610937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2snp!4v1673685033971!5m2!1sen!2snp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-5 col-sm-12">
+                <div class="footer-thumb footer-info">
+                    <h2>Afnai Company</h2>
+                    <p>Chosee your better house for live.Selcet differetn design of house and contact us.</p>
+                </div>
+            </div>
+
+            <div class="col-md-2 col-sm-4">
+                <div class="footer-thumb">
+                    <h2>Company</h2>
+                    <ul class="footer-link">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Empty</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-2 col-sm-4">
+                <div class="footer-thumb">
+                    <h2>Services</h2>
+                    <ul class="footer-link">
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-4">
+                <div class="footer-thumb">
+                    <h2>Find us</h2>
+                    <p>Pipalbot 400, <br> Dillibazar ,Kathmandu</p>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12">
+                <div class="footer-bottom">
+                    <div class="col-md-6 col-sm-5">
+                        <div class="copyright-text">
+                            <img th:src="@{~/img/A1.png}" class="img-responsive" alt="">
+
+                            <p>Copyright &copy; 2022 Afnai propertyt</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-7">
+                        <div class="phone-contact">
+                            <p>Call us <span>(+977) 9811529654</span></p>
+                        </div>
+                        <ul class="social-icon">
+                                <li><a href="https://www.facebook.com/iprin.wagle.77" class="fa fa-facebook-square" attr="facebook icon"></a></li>
+                            <li><a href="#" class="fa fa-twitter"></a></li>
+                            <li><a href="https://www.instagram.com/rabi_wagle88/?next=%2F" class="fa fa-instagram"></a></li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+
+
+<!-- SCRIPTS -->
+<script th:src="@{~/js/jquery.js}"></script>
+<script th:src="@{~/js/bootstrap.min.js}"></script>
+<script th:src="@{~/js/jquery.stellar.min.js}"></script>
+<script th:src="@{~/js/jquery.magnific-popup.min.js}"></script>
+<script th:src="@{~/js/smoothscroll.js}"></script>
+<script th:src="@{~/js/custom.js}"></script>
+
+</body>
+</html>
