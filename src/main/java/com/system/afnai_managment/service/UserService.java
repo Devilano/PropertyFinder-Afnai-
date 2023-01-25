@@ -10,6 +10,8 @@ public interface UserService {
     List<User> fetchAll();
     User fetchById(Integer id);
     void delteById(Integer id);
+    void sendEmail();
 
 
+    User findByEmail(String email);
 }

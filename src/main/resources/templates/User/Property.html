@@ -13,6 +13,9 @@
     <meta name="keywords" content="">
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 
     <link rel="stylesheet" th:href="@{~/css/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{~/css/magnific-popup.css}">
@@ -50,18 +53,30 @@
         <!-- MENU LINKS -->
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-nav-first">
-                <li><a href="#home" class="smoothScroll">Home</a></li>
-                <li><a href="#about" class="smoothScroll">About</a></li>
+                <li><a th:href="@{~/user/home}" class="smoothScroll">Home</a></li>
+                <li><a th:href="@{~/user/home}" class="smoothScroll">About</a></li>
                 <li><a href="#blog" class="smoothScroll">City</a></li>
-                <li><a href="#work" class="smoothScroll">House Design</a></li>
+                <li><a th:href="@{~/user/home}" class="smoothScroll">House Design</a></li>
                 <li><a href="#contact" class="smoothScroll">Contacts</a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="https://www.facebook.com/iprin.wagle.77"><i class="fa fa-facebook-square"></i></a></li>
                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="https://www.instagram.com/rabi_wagle88/?next=%2F"><i class="fa fa-instagram"></i></a></li>
-                <li class="section-btn"><a th:href="@{~/login}" >Login</a></li>
+                <li><a href=""><i class="fa fa-instagram"></i></a></li>
+                <li><a href=""><i class=""></i></a></li>
+                <li><a href=""><i class=""></i></a></li>
+                <li><a href=""><i class=""></i></a></li>
+                <li><a href=""><i class=""></i></a></li>
+                <li><a href=""><i class=""></i></a></li>
+                <li><a href=""><i class=""></i></a></li>
+                <li><a href=""><i class=""></i></a></li>
+                <li><a href=""><i class=""></i></a></li>
+                <li><a href="#" data-toggle="modal" data-target="#modal-form"><button type="button" class="btn btn-default btn-group-sm">
+                    <span class="glyphicon glyphicon-user"></span>
+                </button>
+                </a></li>
+
             </ul>
         </div>
     </div>
@@ -121,13 +136,17 @@
                 <!-- BLOG THUMB -->
                 <div class="media blog-thumb">
                     <div class="media-object media-left">
-                        <a href="https://en.wikipedia.org/wiki/Kathmandu"><img th:src="@{~/img/Kathmandu.jpg}" class="img-responsive" alt=""></a>
+                        <a th:href="@{~/img/House/house1.jpg}" class="image-popup"><img th:src="@{~/img/House/house1.jpg}" class="img-responsive" alt=""></a>
                     </div>
                     <div class="media-body blog-info">
                         <small><i class="fa fa-clock-o"></i> December 22, 2017</small>
-                        <h3><a href="https://en.wikipedia.org/wiki/Kathmandu">Kathmandu</a></h3>
-                        <p>Capital city of nepal.</p>
-                        <a th:href="@{~/login}" class="btn section-btn">View Detail</a>
+<!--                        <a href="https://en.wikipedia.org/wiki/Kathmandu">-->
+                        <h3>45 Lakhs(22sq.ft)</a></h3>
+                        <p>-Single stroy,Full furnished</p>
+                        <p>-4 Rooms,2 attached bathroom</p>
+                        <p>-2 bedrooms,1 living,1 kitchen</p>
+
+                        <a th:href="@{~/login}" class="btn section-btn">Intrested</a>
                     </div>
                 </div>
             </div>
@@ -135,13 +154,15 @@
                 <!-- BLOG THUMB -->
                 <div class="media blog-thumb">
                     <div class="media-object media-left">
-                        <a href="https://en.wikipedia.org/wiki/Butwal"><img th:src="@{~/img/Butwal.png}" class="img-responsive" alt=""></a>
+                        <a th:href="@{~/img/House/house2.jpg}" class="image-popup"><img th:src="@{~/img/House/house2.jpg}" class="img-responsive" alt=""></a>
                     </div>
                     <div class="media-body blog-info">
                         <small><i class="fa fa-clock-o"></i> December 18, 2017</small>
-                        <h3><a href="https://en.wikipedia.org/wiki/Butwal">Butwal</a></h3>
-                        <p>City in lumbini nepal</p>
-                        <a th:href="@{~/login}" class="btn section-btn">View Detail</a>
+                        <h3>1.2cr(27sq.ft)</h3>
+                        <p>-Double stroy,Full furnished
+                        -7 Rooms,3 attached bathroom,2 external bathroom
+                        -3 bedrooms, living, kitchen,storeroom,guestroom</p>
+                        <a th:href="@{~/login}" class="btn section-btn">Intersted</a>
                     </div>
                 </div>
             </div>
@@ -150,13 +171,16 @@
                 <!-- BLOG THUMB -->
                 <div class="media blog-thumb">
                     <div class="media-object media-left">
-                        <a href="https://en.wikipedia.org/wiki/Pokhara"><img th:src="@{~/img/pokhara.png}" class="img-responsive" alt=""></a>
+                        <a th:href="@{~/img/House/house3jpg.jpg}" class="image-popup">
+                            <img th:src="@{~/img/House/house3jpg.jpg}" class="img-responsive" alt=""></a>
                     </div>
                     <div class="media-body blog-info">
                         <small><i class="fa fa-clock-o"></i> December 14, 2017</small>
-                        <h3><a href="https://en.wikipedia.org/wiki/Pokhara">Pokhara</a></h3>
-                        <p>Metropolitan city of nepal.</p>
-                        <a th:href="@{~/login}" class="btn section-btn">View Detail</a>
+                        <h3>4.3cr(27sq.ft)Rp Mahal</h3>
+                        <p>-Double stroy,Full furnished with antic item
+                        -8 Rooms,3 attached bathroom,3 external bathroom,Swimmingpool
+                        -2 bedrooms, 2 living, kitchen,storeroom,guestroom,sweetroom</p>
+                        <a th:href="@{~/login}" class="btn section-btn">Intrested</a>
                     </div>
                 </div>
             </div>
@@ -165,13 +189,17 @@
                 <!-- BLOG THUMB -->
                 <div class="media blog-thumb">
                     <div class="media-object media-left">
-                        <a href="https://en.wikipedia.org/wiki/Dharan"><img th:src="@{~/img/dharan.png}" class="img-responsive" alt=""></a>
+                        <a th:href="@{~/img/House/house4.jpg}" class="image-popup"><img th:src="@{~/img/House/house4.jpg}" class="img-responsive" alt=""></a>
                     </div>
                     <div class="media-body blog-info">
                         <small><i class="fa fa-clock-o"></i> December 10, 2022</small>
-                        <h3><a href="https://en.wikipedia.org/wiki/Dharan">Dharan</a></h3>
-                        <p>City in eastern nepal</p>
-                        <a th:href="@{~/login}" class="btn section-btn">View Detail</a>
+                        <h3>45 Lakhs(22sq.ft)</a></h3>
+                        <p>-Single stroy,Full furnished</p>
+                        <p>-4 Rooms,2 attached bathroom</p>
+                        <p>-2 bedrooms,1 living,1 kitchen</p>
+                        <a th:href="@{~/login}" class="btn section-btn">Intrested</a>
+
+
                     </div>
                 </div>
             </div>
@@ -188,13 +216,15 @@
                 <!-- BLOG THUMB -->
                 <div class="media blog-thumb">
                     <div class="media-object media-left">
-                        <a href="https://en.wikipedia.org/wiki/Kathmandu"><img th:src="@{~/img/Kathmandu.jpg}" class="img-responsive" alt=""></a>
+                        <a th:href="@{~/img/House/house5.jpg}" class="image-popup"><img th:src="@{~/img/House/house5.jpg}" class="img-responsive" alt=""></a>
                     </div>
                     <div class="media-body blog-info">
                         <small><i class="fa fa-clock-o"></i> December 22, 2017</small>
-                        <h3><a href="https://en.wikipedia.org/wiki/Kathmandu">Kathmandu</a></h3>
-                        <p>Capital city of nepal.</p>
-                        <a th:href="@{~/login}" class="btn section-btn">View Detail</a>
+                        <h3>75lakhscr(22sq.ft)</h3>
+                        <p>-Double stroy,</p>
+                        <p>-5 Rooms,1 attached bathroom,1 external bathroom
+                        -2 bedrooms,  living, kitchen,storeroom</p>
+                        <a th:href="@{~/login}" class="btn section-btn">Intrested</a>
                     </div>
                 </div>
             </div>
@@ -203,13 +233,17 @@
                 <!-- BLOG THUMB -->
                 <div class="media blog-thumb">
                     <div class="media-object media-left">
-                        <a href="https://en.wikipedia.org/wiki/Butwal"><img th:src="@{~/img/Butwal.png}" class="img-responsive" alt=""></a>
+                        <a th:href="@{~/img/House/house6.jpg}" class="image-popup"><img th:src="@{~/img/House/house6.jpg}" class="img-responsive" alt=""></a>
                     </div>
                     <div class="media-body blog-info">
                         <small><i class="fa fa-clock-o"></i> December 18, 2017</small>
-                        <h3><a href="https://en.wikipedia.org/wiki/Butwal">Butwal</a></h3>
-                        <p>City in lumbini nepal</p>
-                        <a th:href="@{~/login}" class="btn section-btn">View Detail</a>
+                        <h3>45 Lakhs(22sq.ft)</a></h3>
+                        <p>-Single stroy,Full furnished</p>
+                        <p>-4 Rooms,2 attached bathroom</p>
+                        <p>-2 bedrooms,1 living,1 kitchen</p>
+                        <a th:href="@{~/login}" class="btn section-btn">Intrested</a>
+
+
                     </div>
                 </div>
             </div>
@@ -218,13 +252,15 @@
                 <!-- BLOG THUMB -->
                 <div class="media blog-thumb">
                     <div class="media-object media-left">
-                        <a href="https://en.wikipedia.org/wiki/Pokhara"><img th:src="@{~/img/pokhara.png}" class="img-responsive" alt=""></a>
+                        <a th:href="@{~/img/House/house7.jpg}" class="image-popup"><img th:src="@{~/img/House/house7.jpg}" class="img-responsive" alt=""></a>
                     </div>
                     <div class="media-body blog-info">
                         <small><i class="fa fa-clock-o"></i> December 14, 2017</small>
-                        <h3><a href="https://en.wikipedia.org/wiki/Pokhara">Pokhara</a></h3>
-                        <p>Metropolitan city of nepal.</p>
-                        <a th:href="@{~/login}" class="btn section-btn">View Detail</a>
+                        <h3>1cr(29sq.ft)</h3>
+                        <p>-Double stroy,
+                        -5 Rooms,1 attached bathroom,1 external bathroom
+                        -2 bedrooms,  living, kitchen,storeroom</p>
+                        <a th:href="@{~/login}" class="btn section-btn">Intrested</a>
                     </div>
                 </div>
             </div>
@@ -233,13 +269,17 @@
                 <!-- BLOG THUMB -->
                 <div class="media blog-thumb">
                     <div class="media-object media-left">
-                        <a href="https://en.wikipedia.org/wiki/Dharan"><img th:src="@{~/img/dharan.png}" class="img-responsive" alt=""></a>
+                        <a th:href="@{~/img/House/house8.jpg}" class="image-popup"><img th:src="@{~/img/House/house8.jpg}" class="img-responsive" alt=""></a>
                     </div>
                     <div class="media-body blog-info">
                         <small><i class="fa fa-clock-o"></i> December 10, 2022</small>
-                        <h3><a href="https://en.wikipedia.org/wiki/Dharan">Dharan</a></h3>
-                        <p>City in eastern nepal</p>
-                        <a th:href="@{~/login}" class="btn section-btn">View Detail</a>
+                        <h3>45 Lakhs(22sq.ft)</a></h3>
+                        <p>-Single stroy,Full furnished</p>
+                        <p>-4 Rooms,2 attached bathroom</p>
+                        <p>-2 bedrooms,1 living,1 kitchen</p>
+                        <a th:href="@{~/login}" class="btn section-btn">Intrested</a>
+
+
                     </div>
                 </div>
             </div>
@@ -256,13 +296,17 @@
                 <!-- BLOG THUMB -->
                 <div class="media blog-thumb">
                     <div class="media-object media-left">
-                        <a href="https://en.wikipedia.org/wiki/Kathmandu"><img th:src="@{~/img/Kathmandu.jpg}" class="img-responsive" alt=""></a>
+                        <a th:href="@{~/img/House/house1.jpg}" class="image-popup"><img th:src="@{~/img/House/house1.jpg}" class="img-responsive" alt=""></a>
                     </div>
                     <div class="media-body blog-info">
                         <small><i class="fa fa-clock-o"></i> December 22, 2017</small>
-                        <h3><a href="https://en.wikipedia.org/wiki/Kathmandu">Kathmandu</a></h3>
-                        <p>Capital city of nepal.</p>
-                        <a th:href="@{~/login}" class="btn section-btn">View Detail</a>
+                        <h3>45 Lakhs(22sq.ft)</a></h3>
+                        <p>-Single stroy,Full furnished</p>
+                        <p>-4 Rooms,2 attached bathroom</p>
+                        <p>-2 bedrooms,1 living,1 kitchen</p>
+                        <a th:href="@{~/login}" class="btn section-btn">Intrested</a>
+
+
                     </div>
                 </div>
             </div>
@@ -271,13 +315,16 @@
                 <!-- BLOG THUMB -->
                 <div class="media blog-thumb">
                     <div class="media-object media-left">
-                        <a href="https://en.wikipedia.org/wiki/Butwal"><img th:src="@{~/img/Butwal.png}" class="img-responsive" alt=""></a>
+                        <a th:href="@{~/img/House/house2.jpg}" class="image-popup"><img th:src="@{~/img/House/house2.jpg}" class="img-responsive" alt=""></a>
                     </div>
                     <div class="media-body blog-info">
                         <small><i class="fa fa-clock-o"></i> December 18, 2017</small>
-                        <h3><a href="https://en.wikipedia.org/wiki/Butwal">Butwal</a></h3>
-                        <p>City in lumbini nepal</p>
-                        <a th:href="@{~/login}" class="btn section-btn">View Detail</a>
+                        <h3>Rp Mahal</h3>
+                        <h3>4.3cr(27sq.ft)</h3>
+                        <p>-Double stroy,Full furnished
+                        -8 Rooms,3 attached bathroom,3 external bathroom,Swimmingpool
+                            -2 bedrooms, 2 living, kitchen,storeroom,guestroom,sweetroom</p>
+                        <a th:href="@{~/login}" class="btn section-btn">Intrested</a>
                     </div>
                 </div>
             </div>
@@ -286,13 +333,15 @@
                 <!-- BLOG THUMB -->
                 <div class="media blog-thumb">
                     <div class="media-object media-left">
-                        <a href="https://en.wikipedia.org/wiki/Pokhara"><img th:src="@{~/img/pokhara.png}" class="img-responsive" alt=""></a>
+                        <a th:href="@{~/img/House/house3jpg.jpg}" class="image-popup"><img th:src="@{~/img/House/house3jpg.jpg}" class="img-responsive" alt=""></a>
                     </div>
                     <div class="media-body blog-info">
                         <small><i class="fa fa-clock-o"></i> December 14, 2017</small>
-                        <h3><a href="https://en.wikipedia.org/wiki/Pokhara">Pokhara</a></h3>
-                        <p>Metropolitan city of nepal.</p>
-                        <a th:href="@{~/login}" class="btn section-btn">View Detail</a>
+                        <h3>1cr(29sq.ft)</h3>
+                        <p>-Single stroy,</p>
+                        -5 Rooms,1 attached bathroom,1 external bathroom
+                        <p>-2 bedrooms,  living, kitchen,storeroom</p>
+                        <a th:href="@{~/login}" class="btn section-btn">Intrested</a>
                     </div>
                 </div>
             </div>
@@ -301,13 +350,17 @@
                 <!-- BLOG THUMB -->
                 <div class="media blog-thumb">
                     <div class="media-object media-left">
-                        <a href="https://en.wikipedia.org/wiki/Dharan"><img th:src="@{~/img/dharan.png}" class="img-responsive" alt=""></a>
+                        <a th:href="@{~/img/House/house4.jpg}" class="image-popup"><img th:src="@{~/img/House/house4.jpg}" class="img-responsive" alt=""></a>
                     </div>
                     <div class="media-body blog-info">
                         <small><i class="fa fa-clock-o"></i> December 10, 2022</small>
-                        <h3><a href="https://en.wikipedia.org/wiki/Dharan">Dharan</a></h3>
-                        <p>City in eastern nepal</p>
-                        <a th:href="@{~/login}" class="btn section-btn">View Detail</a>
+                        <h3>45 Lakhs(22sq.ft)</a></h3>
+                        <p>-Single stroy,Full furnished</p>
+                        <p>-4 Rooms,2 attached bathroom</p>
+                        <p>-2 bedrooms,1 living,1 kitchen</p>
+                        <a th:href="@{~/login}" class="btn section-btn">Intrested</a>
+
+
                     </div>
                 </div>
             </div>
@@ -324,13 +377,17 @@
                 <!-- BLOG THUMB -->
                 <div class="media blog-thumb">
                     <div class="media-object media-left">
-                        <a href="https://en.wikipedia.org/wiki/Kathmandu"><img th:src="@{~/img/Kathmandu.jpg}" class="img-responsive" alt=""></a>
+                        <a th:href="@{~/img/House/house5.jpg}" class="image-popup"><img th:src="@{~/img/House/house5.jpg}" class="img-responsive" alt=""></a>
                     </div>
                     <div class="media-body blog-info">
                         <small><i class="fa fa-clock-o"></i> December 22, 2017</small>
-                        <h3><a href="https://en.wikipedia.org/wiki/Kathmandu">Kathmandu</a></h3>
-                        <p>Capital city of nepal.</p>
-                        <a th:href="@{~/login}" class="btn section-btn">View Detail</a>
+                        <h3>45 Lakhs(22sq.ft)</a></h3>
+                        <p>-Single stroy,Full furnished</p>
+                        <p>-4 Rooms,2 attached bathroom</p>
+                        <p>-2 bedrooms,1 living,1 kitchen</p>
+                        <a th:href="@{~/login}" class="btn section-btn">Intrested</a>
+
+
                     </div>
                 </div>
             </div>
@@ -339,13 +396,17 @@
                 <!-- BLOG THUMB -->
                 <div class="media blog-thumb">
                     <div class="media-object media-left">
-                        <a href="https://en.wikipedia.org/wiki/Butwal"><img th:src="@{~/img/Butwal.png}" class="img-responsive" alt=""></a>
+                        <a th:href="@{~/img/House/house6.jpg}" class="image-popup"><img th:src="@{~/img/House/house6.jpg}" class="img-responsive" alt=""></a>
                     </div>
                     <div class="media-body blog-info">
                         <small><i class="fa fa-clock-o"></i> December 18, 2017</small>
-                        <h3><a href="https://en.wikipedia.org/wiki/Butwal">Butwal</a></h3>
-                        <p>City in lumbini nepal</p>
-                        <a th:href="@{~/login}" class="btn section-btn">View Detail</a>
+                        <h3>45 Lakhs(22sq.ft)</a></h3>
+                        <p>-Single stroy,Full furnished</p>
+                        <p>-4 Rooms,2 attached bathroom</p>
+                        <p>-2 bedrooms,1 living,1 kitchen</p>
+                        <a th:href="@{~/login}" class="btn section-btn">Intrested</a>
+
+
                     </div>
                 </div>
             </div>
@@ -354,13 +415,17 @@
                 <!-- BLOG THUMB -->
                 <div class="media blog-thumb">
                     <div class="media-object media-left">
-                        <a href="https://en.wikipedia.org/wiki/Pokhara"><img th:src="@{~/img/pokhara.png}" class="img-responsive" alt=""></a>
+                        <a th:href="@{~/img/House/house7.jpg}" class="image-popup"><img th:src="@{~/img/House/house7.jpg}" class="img-responsive" alt=""></a>
                     </div>
                     <div class="media-body blog-info">
                         <small><i class="fa fa-clock-o"></i> December 14, 2017</small>
-                        <h3><a href="https://en.wikipedia.org/wiki/Pokhara">Pokhara</a></h3>
-                        <p>Metropolitan city of nepal.</p>
-                        <a th:href="@{~/login}" class="btn section-btn">View Detail</a>
+                        <h3>45 Lakhs(22sq.ft)</a></h3>
+                        <p>-Single stroy,Full furnished</p>
+                        <p>-4 Rooms,2 attached bathroom</p>
+                        <p>-2 bedrooms,1 living,1 kitchen</p>
+                        <a th:href="@{~/login}" class="btn section-btn">Intrested</a>
+
+
                     </div>
                 </div>
             </div>
@@ -369,13 +434,15 @@
                 <!-- BLOG THUMB -->
                 <div class="media blog-thumb">
                     <div class="media-object media-left">
-                        <a href="https://en.wikipedia.org/wiki/Dharan"><img th:src="@{~/img/dharan.png}" class="img-responsive" alt=""></a>
+                        <a th:href="@{~/img/House/house8.jpg}" class="image-popup"><img th:src="@{~/img/House/house8.jpg}" class="img-responsive" alt=""></a>
                     </div>
                     <div class="media-body blog-info">
                         <small><i class="fa fa-clock-o"></i> December 10, 2022</small>
-                        <h3><a href="https://en.wikipedia.org/wiki/Dharan">Dharan</a></h3>
-                        <p>City in eastern nepal</p>
-                        <a th:href="@{~/login}" class="btn section-btn">View Detail</a>
+                        <h3>1cr(29sq.ft)</h3>
+                        <p>-Single stroy,
+                        -5 Rooms,1 attached bathroom,1 external bathroom
+                        -2 bedrooms,  living, kitchen,storeroom</p>
+                        <a th:href="@{~/login}" class="btn section-btn">Intrested</a>
                     </div>
                 </div>
             </div>
@@ -472,7 +539,50 @@
 </footer>
 
 
+<!-- Profile pop up-->
+<!-- MODAL -->
+<section class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content modal-popup">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-12 col-sm-12">
+                            <div class="modal-title">
+<!--                                Your image will upload here-->
+                                <h2><img th:src="@{~/img/rabi1.jpg}">
+                                </h2>
+                                <h1 style="background-color: whitesmoke">Rabindra Wagle</h1>
+
+                            </div>
+                                </div>
+                            </div>
+                        </div>
+                <div class="section-btn"><a th:href="@{~/login}">Logout</a></div>
+
+
+            </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
 <!-- SCRIPTS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script th:src="@{~/js/jquery.js}"></script>
 <script th:src="@{~/js/bootstrap.min.js}"></script>
 <script th:src="@{~/js/jquery.stellar.min.js}"></script>

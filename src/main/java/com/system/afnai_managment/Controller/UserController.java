@@ -43,7 +43,7 @@ public class UserController {
     @PostMapping("/save")
     public String saveUser(@Valid UserPojo userPojo) {
         userService.saveUser(userPojo);
-        return "redirect:/user/list"; //route or path
+        return "User/login"; //route or path
     }
 
     @GetMapping("/edit/{id}")
@@ -64,7 +64,11 @@ public class UserController {
         return "User/Home";
     }
 
-
+    @GetMapping("/sendEmail")
+    public String sendRegistrationEmail(){
+        this.userService.sendEmail();
+        return "emailsucess";
+    }
 
 }
 
