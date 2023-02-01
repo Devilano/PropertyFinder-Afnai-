@@ -1,15 +1,13 @@
 package com.system.afnai_managment.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
+@Builder
 @Getter
 @Setter
 @AllArgsConstructor
@@ -17,7 +15,6 @@ import java.util.Collection;
 @Entity
 @Table(name="users")
 public class User implements UserDetails {
-
     @Id
     @SequenceGenerator(name = "Afnai_user_seq_gen", sequenceName = "Afnai_user_id_seq", allocationSize = 1)
     @GeneratedValue(generator = "Afnai_user_seq_gen", strategy = GenerationType.SEQUENCE)
@@ -64,8 +61,5 @@ public class User implements UserDetails {
         return true;
     }
 
-    public String getUserName() {
-        return this.userName;
-    }
 }
 

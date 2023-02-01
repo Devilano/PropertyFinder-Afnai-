@@ -25,7 +25,6 @@ public class UserController {
     public String getUserList(Model model) {
         List<User> users = userService.fetchAll();
         model.addAttribute("userList", users);
-
         return "User/index";
     }
 
@@ -37,13 +36,14 @@ public class UserController {
 
     @GetMapping("/property")
     public String getPage1() {
+
         return "User/Property";
     }
 
     @PostMapping("/save")
     public String saveUser(@Valid UserPojo userPojo) {
         userService.saveUser(userPojo);
-        return "User/login"; //route or path
+        return "User/login"; //
     }
 
     @GetMapping("/edit/{id}")
@@ -69,6 +69,10 @@ public class UserController {
         this.userService.sendEmail();
         return "emailsucess";
     }
+
+
+
+
 
 }
 

@@ -13,7 +13,6 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
-
 public class SpringSecurityConfig {
 
     private final CustomUserDetailService customUserDetailService;
@@ -35,19 +34,18 @@ public class SpringSecurityConfig {
     protected SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception{
         httpSecurity.csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/user/**")
+                .requestMatchers("/user/admin/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/dashboard",true)
+                .defaultSuccessUrl("/user/property",true)
                 .usernameParameter("email")
                 .permitAll()
                 .and()
                 .httpBasic();
-
         return httpSecurity.build();
     }
 
@@ -55,6 +53,6 @@ public class SpringSecurityConfig {
 
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer(){
-        return (web) -> web.ignoring().requestMatchers("/css/**", "/js/**");
+        return (web) -> web.ignoring().requestMatchers("/css/**", "/Js/**","/img/**","/fonts/**");
     }
 }

@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Repository
 public interface UserRepo extends JpaRepository<User, Integer> {
-    @Query(value = "select * from users where email=?1", nativeQuery = true)
+    @Query(value = "select * from USERS where email=?1", nativeQuery = true)
     Optional<User> findByEmail(String email);
 
 }

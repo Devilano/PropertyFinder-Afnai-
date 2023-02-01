@@ -2,7 +2,7 @@ package com.system.afnai_managment.config;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-public class PasswordEncoderUtil {
+public final class PasswordEncoderUtil {
   private static final BCryptPasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder();
   private PasswordEncoderUtil() {
       throw new IllegalStateException("Utility class");

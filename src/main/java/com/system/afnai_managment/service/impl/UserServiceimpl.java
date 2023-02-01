@@ -41,7 +41,7 @@ public class UserServiceimpl implements UserService {
     @Override
     public String saveUser(UserPojo userPojo) {
         User user = new User();
-        user.setUserName(userPojo.getUserName());
+        user.setUserName(userPojo.getUser_name());
         user.setEmail(userPojo.getEmail());
         user.setMobileNo(userPojo.getMobileNo());
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -54,7 +54,7 @@ public class UserServiceimpl implements UserService {
 
     @Override
     public List<User> fetchAll() {
-        return userRepo.findAll();
+        return this.userRepo.findAll();
     }
 
     @Override
@@ -96,10 +96,10 @@ public class UserServiceimpl implements UserService {
 
 
     @Override
-    public User findByEmail(String email) {
+    public UserPojo findByEmail(String email) {
         User user = userRepo.findByEmail(email)
                 .orElseThrow(() -> new AppException("Invalid User email", HttpStatus.BAD_REQUEST));
-        return user;
+        return new UserPojo(user);
     }
 
 
@@ -108,7 +108,6 @@ public class UserServiceimpl implements UserService {
 
 }
 
-//qahqxynmgeitiuny
 
 
 

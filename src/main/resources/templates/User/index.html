@@ -18,7 +18,7 @@
     <tr th:each="user:${userList}">
         <td th:text="${user.email}"></td>
         <td th:text="${user.mobileNo}"></td>
-        <td th:text="${user.userName}"></td>
+<!--        <td th:text="${user.user_name}"></td>-->
         <td>
             <a th:href="@{~/user/edit/}+${user.id}">Edit</a> |
             <a th:href="@{~/user/delete/}+${user.id}">Delete</a>

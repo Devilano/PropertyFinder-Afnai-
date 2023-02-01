@@ -13,5 +13,5 @@ public interface UserService {
     void sendEmail();
 
 
-    User findByEmail(String email);
+    UserPojo findByEmail(String email);
 }

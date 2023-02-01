@@ -1,11 +1,9 @@
 package com.system.afnai_managment.pojo;
 
 import com.system.afnai_managment.entity.User;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
+@Builder
 @Getter
 @Setter
 @NoArgsConstructor
@@ -13,7 +11,7 @@ import lombok.Setter;
 
 public class UserPojo {
 
-    private String userName;
+    private String user_name;
     private Integer id;
     private String email;
     private String mobileNo;
@@ -22,7 +20,7 @@ public class UserPojo {
     public UserPojo(User user){
         this.id=user.getId();
         this.email=user.getEmail();
-        this.userName=user.getUserName();
+        this.user_name=user.getUsername();
         this.mobileNo=user.getMobileNo();
         this.password=user.getPassword();
 
