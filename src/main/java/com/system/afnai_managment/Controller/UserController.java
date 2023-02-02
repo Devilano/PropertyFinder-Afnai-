@@ -1,7 +1,9 @@
 package com.system.afnai_managment.Controller;
 
+import com.system.afnai_managment.entity.Property;
 import com.system.afnai_managment.entity.User;
 import com.system.afnai_managment.pojo.UserPojo;
+import com.system.afnai_managment.service.PropertyService;
 import com.system.afnai_managment.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -20,6 +23,7 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
+    private final PropertyService propertyService;
 
     @GetMapping("/list")
     public String getUserList(Model model) {
@@ -34,11 +38,6 @@ public class UserController {
         return "User/create";
     }
 
-    @GetMapping("/property")
-    public String getPage1() {
-
-        return "User/Property";
-    }
 
     @PostMapping("/save")
     public String saveUser(@Valid UserPojo userPojo) {
@@ -50,7 +49,7 @@ public class UserController {
     public String editUser(@PathVariable("id") Integer id,Model model){
         User user =userService.fetchById(id);
         model.addAttribute("user",new UserPojo(user));
-        return "User/create";
+        return "User/AddProperty";
     }
 
     @GetMapping("/delete/{id}")
@@ -68,6 +67,14 @@ public class UserController {
     public String sendRegistrationEmail(){
         this.userService.sendEmail();
         return "emailsucess";
+    }
+
+    @GetMapping("/property") //This is for user side
+    public String getTeamsList(Model model, Principal principal) {
+        List<Property> property = propertyService.fetchAll();
+        model.addAttribute("propertyList", property);
+        model.addAttribute("logged",userService.findByEmail(principal.getName()));
+        return "User/Property";
     }
 
 

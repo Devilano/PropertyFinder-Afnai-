@@ -120,18 +120,18 @@
 
 
 
-<!-- Kathmandu -->
 <section id="blog" data-stellar-background-ratio="0.5">
     <div class="container">
         <div class="row">
 
             <div class="col-md-12 col-sm-12">
                 <div class="section-title">
-                    <h2>Kathmandu City</h2>
+                    <h2>List of avialable Proeprties</h2>
                     <span class="line-bar">...</span>
                 </div>
             </div>
 
+            <tr th:each="property:${propertyList}">
             <div class="col-md-6 col-sm-6">
                 <!-- BLOG THUMB -->
                 <div class="media blog-thumb">
@@ -140,312 +140,22 @@
                     </div>
                     <div class="media-body blog-info">
                         <small><i class="fa fa-clock-o"></i> December 22, 2017</small>
-<!--                        <a href="https://en.wikipedia.org/wiki/Kathmandu">-->
-                        <h3>45 Lakhs(22sq.ft)</a></h3>
-                        <p>-Single stroy,Full furnished</p>
-                        <p>-4 Rooms,2 attached bathroom</p>
-                        <p>-2 bedrooms,1 living,1 kitchen</p>
+                        <h3><td th:text="${property.propertyName}"></td>
+                            </a></h3>
+                        <p>Area=><td th:text="${property.areaSq}"></td>
+                        </p>
+                        <p>Room=><td  th:text="${property.room}"></td>
+                        </p>
+                        <p>Location=><td th:text="${property.location}"></td>
+                        </p>
+                        <p > City=><td th:text="${property.PCity}"></td>
+                        </p>
 
                         <a th:href="@{~/login}" class="btn section-btn">Intrested</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-sm-6">
-                <!-- BLOG THUMB -->
-                <div class="media blog-thumb">
-                    <div class="media-object media-left">
-                        <a th:href="@{~/img/House/house2.jpg}" class="image-popup"><img th:src="@{~/img/House/house2.jpg}" class="img-responsive" alt=""></a>
-                    </div>
-                    <div class="media-body blog-info">
-                        <small><i class="fa fa-clock-o"></i> December 18, 2017</small>
-                        <h3>1.2cr(27sq.ft)</h3>
-                        <p>-Double stroy,Full furnished
-                        -7 Rooms,3 attached bathroom,2 external bathroom
-                        -3 bedrooms, living, kitchen,storeroom,guestroom</p>
-                        <a th:href="@{~/login}" class="btn section-btn">Intersted</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-sm-6">
-                <!-- BLOG THUMB -->
-                <div class="media blog-thumb">
-                    <div class="media-object media-left">
-                        <a th:href="@{~/img/House/house3jpg.jpg}" class="image-popup">
-                            <img th:src="@{~/img/House/house3jpg.jpg}" class="img-responsive" alt=""></a>
-                    </div>
-                    <div class="media-body blog-info">
-                        <small><i class="fa fa-clock-o"></i> December 14, 2017</small>
-                        <h3>4.3cr(27sq.ft)Rp Mahal</h3>
-                        <p>-Double stroy,Full furnished with antic item
-                        -8 Rooms,3 attached bathroom,3 external bathroom,Swimmingpool
-                        -2 bedrooms, 2 living, kitchen,storeroom,guestroom,sweetroom</p>
-                        <a th:href="@{~/login}" class="btn section-btn">Intrested</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-sm-6">
-                <!-- BLOG THUMB -->
-                <div class="media blog-thumb">
-                    <div class="media-object media-left">
-                        <a th:href="@{~/img/House/house4.jpg}" class="image-popup"><img th:src="@{~/img/House/house4.jpg}" class="img-responsive" alt=""></a>
-                    </div>
-                    <div class="media-body blog-info">
-                        <small><i class="fa fa-clock-o"></i> December 10, 2022</small>
-                        <h3>45 Lakhs(22sq.ft)</a></h3>
-                        <p>-Single stroy,Full furnished</p>
-                        <p>-4 Rooms,2 attached bathroom</p>
-                        <p>-2 bedrooms,1 living,1 kitchen</p>
-                        <a th:href="@{~/login}" class="btn section-btn">Intrested</a>
-
-
-                    </div>
-                </div>
-            </div>
-
-<!--Butwal-->
-            <div class="col-md-12 col-sm-12">
-                <div class="section-title">
-                    <h2>Butwal City</h2>
-                    <span class="line-bar">...</span>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-sm-6">
-                <!-- BLOG THUMB -->
-                <div class="media blog-thumb">
-                    <div class="media-object media-left">
-                        <a th:href="@{~/img/House/house5.jpg}" class="image-popup"><img th:src="@{~/img/House/house5.jpg}" class="img-responsive" alt=""></a>
-                    </div>
-                    <div class="media-body blog-info">
-                        <small><i class="fa fa-clock-o"></i> December 22, 2017</small>
-                        <h3>75lakhscr(22sq.ft)</h3>
-                        <p>-Double stroy,</p>
-                        <p>-5 Rooms,1 attached bathroom,1 external bathroom
-                        -2 bedrooms,  living, kitchen,storeroom</p>
-                        <a th:href="@{~/login}" class="btn section-btn">Intrested</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-sm-6">
-                <!-- BLOG THUMB -->
-                <div class="media blog-thumb">
-                    <div class="media-object media-left">
-                        <a th:href="@{~/img/House/house6.jpg}" class="image-popup"><img th:src="@{~/img/House/house6.jpg}" class="img-responsive" alt=""></a>
-                    </div>
-                    <div class="media-body blog-info">
-                        <small><i class="fa fa-clock-o"></i> December 18, 2017</small>
-                        <h3>45 Lakhs(22sq.ft)</a></h3>
-                        <p>-Single stroy,Full furnished</p>
-                        <p>-4 Rooms,2 attached bathroom</p>
-                        <p>-2 bedrooms,1 living,1 kitchen</p>
-                        <a th:href="@{~/login}" class="btn section-btn">Intrested</a>
-
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-sm-6">
-                <!-- BLOG THUMB -->
-                <div class="media blog-thumb">
-                    <div class="media-object media-left">
-                        <a th:href="@{~/img/House/house7.jpg}" class="image-popup"><img th:src="@{~/img/House/house7.jpg}" class="img-responsive" alt=""></a>
-                    </div>
-                    <div class="media-body blog-info">
-                        <small><i class="fa fa-clock-o"></i> December 14, 2017</small>
-                        <h3>1cr(29sq.ft)</h3>
-                        <p>-Double stroy,
-                        -5 Rooms,1 attached bathroom,1 external bathroom
-                        -2 bedrooms,  living, kitchen,storeroom</p>
-                        <a th:href="@{~/login}" class="btn section-btn">Intrested</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-sm-6">
-                <!-- BLOG THUMB -->
-                <div class="media blog-thumb">
-                    <div class="media-object media-left">
-                        <a th:href="@{~/img/House/house8.jpg}" class="image-popup"><img th:src="@{~/img/House/house8.jpg}" class="img-responsive" alt=""></a>
-                    </div>
-                    <div class="media-body blog-info">
-                        <small><i class="fa fa-clock-o"></i> December 10, 2022</small>
-                        <h3>45 Lakhs(22sq.ft)</a></h3>
-                        <p>-Single stroy,Full furnished</p>
-                        <p>-4 Rooms,2 attached bathroom</p>
-                        <p>-2 bedrooms,1 living,1 kitchen</p>
-                        <a th:href="@{~/login}" class="btn section-btn">Intrested</a>
-
-
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-md-12 col-sm-12">
-                <div class="section-title">
-                    <h2>Pokhara City</h2>
-                    <span class="line-bar">...</span>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-sm-6">
-                <!-- BLOG THUMB -->
-                <div class="media blog-thumb">
-                    <div class="media-object media-left">
-                        <a th:href="@{~/img/House/house1.jpg}" class="image-popup"><img th:src="@{~/img/House/house1.jpg}" class="img-responsive" alt=""></a>
-                    </div>
-                    <div class="media-body blog-info">
-                        <small><i class="fa fa-clock-o"></i> December 22, 2017</small>
-                        <h3>45 Lakhs(22sq.ft)</a></h3>
-                        <p>-Single stroy,Full furnished</p>
-                        <p>-4 Rooms,2 attached bathroom</p>
-                        <p>-2 bedrooms,1 living,1 kitchen</p>
-                        <a th:href="@{~/login}" class="btn section-btn">Intrested</a>
-
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-sm-6">
-                <!-- BLOG THUMB -->
-                <div class="media blog-thumb">
-                    <div class="media-object media-left">
-                        <a th:href="@{~/img/House/house2.jpg}" class="image-popup"><img th:src="@{~/img/House/house2.jpg}" class="img-responsive" alt=""></a>
-                    </div>
-                    <div class="media-body blog-info">
-                        <small><i class="fa fa-clock-o"></i> December 18, 2017</small>
-                        <h3>Rp Mahal</h3>
-                        <h3>4.3cr(27sq.ft)</h3>
-                        <p>-Double stroy,Full furnished
-                        -8 Rooms,3 attached bathroom,3 external bathroom,Swimmingpool
-                            -2 bedrooms, 2 living, kitchen,storeroom,guestroom,sweetroom</p>
-                        <a th:href="@{~/login}" class="btn section-btn">Intrested</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-sm-6">
-                <!-- BLOG THUMB -->
-                <div class="media blog-thumb">
-                    <div class="media-object media-left">
-                        <a th:href="@{~/img/House/house3jpg.jpg}" class="image-popup"><img th:src="@{~/img/House/house3jpg.jpg}" class="img-responsive" alt=""></a>
-                    </div>
-                    <div class="media-body blog-info">
-                        <small><i class="fa fa-clock-o"></i> December 14, 2017</small>
-                        <h3>1cr(29sq.ft)</h3>
-                        <p>-Single stroy,</p>
-                        -5 Rooms,1 attached bathroom,1 external bathroom
-                        <p>-2 bedrooms,  living, kitchen,storeroom</p>
-                        <a th:href="@{~/login}" class="btn section-btn">Intrested</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-sm-6">
-                <!-- BLOG THUMB -->
-                <div class="media blog-thumb">
-                    <div class="media-object media-left">
-                        <a th:href="@{~/img/House/house4.jpg}" class="image-popup"><img th:src="@{~/img/House/house4.jpg}" class="img-responsive" alt=""></a>
-                    </div>
-                    <div class="media-body blog-info">
-                        <small><i class="fa fa-clock-o"></i> December 10, 2022</small>
-                        <h3>45 Lakhs(22sq.ft)</a></h3>
-                        <p>-Single stroy,Full furnished</p>
-                        <p>-4 Rooms,2 attached bathroom</p>
-                        <p>-2 bedrooms,1 living,1 kitchen</p>
-                        <a th:href="@{~/login}" class="btn section-btn">Intrested</a>
-
-
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-md-12 col-sm-12">
-                <div class="section-title">
-                    <h2>Dharan City</h2>
-                    <span class="line-bar">...</span>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-sm-6">
-                <!-- BLOG THUMB -->
-                <div class="media blog-thumb">
-                    <div class="media-object media-left">
-                        <a th:href="@{~/img/House/house5.jpg}" class="image-popup"><img th:src="@{~/img/House/house5.jpg}" class="img-responsive" alt=""></a>
-                    </div>
-                    <div class="media-body blog-info">
-                        <small><i class="fa fa-clock-o"></i> December 22, 2017</small>
-                        <h3>45 Lakhs(22sq.ft)</a></h3>
-                        <p>-Single stroy,Full furnished</p>
-                        <p>-4 Rooms,2 attached bathroom</p>
-                        <p>-2 bedrooms,1 living,1 kitchen</p>
-                        <a th:href="@{~/login}" class="btn section-btn">Intrested</a>
-
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-sm-6">
-                <!-- BLOG THUMB -->
-                <div class="media blog-thumb">
-                    <div class="media-object media-left">
-                        <a th:href="@{~/img/House/house6.jpg}" class="image-popup"><img th:src="@{~/img/House/house6.jpg}" class="img-responsive" alt=""></a>
-                    </div>
-                    <div class="media-body blog-info">
-                        <small><i class="fa fa-clock-o"></i> December 18, 2017</small>
-                        <h3>45 Lakhs(22sq.ft)</a></h3>
-                        <p>-Single stroy,Full furnished</p>
-                        <p>-4 Rooms,2 attached bathroom</p>
-                        <p>-2 bedrooms,1 living,1 kitchen</p>
-                        <a th:href="@{~/login}" class="btn section-btn">Intrested</a>
-
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-sm-6">
-                <!-- BLOG THUMB -->
-                <div class="media blog-thumb">
-                    <div class="media-object media-left">
-                        <a th:href="@{~/img/House/house7.jpg}" class="image-popup"><img th:src="@{~/img/House/house7.jpg}" class="img-responsive" alt=""></a>
-                    </div>
-                    <div class="media-body blog-info">
-                        <small><i class="fa fa-clock-o"></i> December 14, 2017</small>
-                        <h3>45 Lakhs(22sq.ft)</a></h3>
-                        <p>-Single stroy,Full furnished</p>
-                        <p>-4 Rooms,2 attached bathroom</p>
-                        <p>-2 bedrooms,1 living,1 kitchen</p>
-                        <a th:href="@{~/login}" class="btn section-btn">Intrested</a>
-
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-sm-6">
-                <!-- BLOG THUMB -->
-                <div class="media blog-thumb">
-                    <div class="media-object media-left">
-                        <a th:href="@{~/img/House/house8.jpg}" class="image-popup"><img th:src="@{~/img/House/house8.jpg}" class="img-responsive" alt=""></a>
-                    </div>
-                    <div class="media-body blog-info">
-                        <small><i class="fa fa-clock-o"></i> December 10, 2022</small>
-                        <h3>1cr(29sq.ft)</h3>
-                        <p>-Single stroy,
-                        -5 Rooms,1 attached bathroom,1 external bathroom
-                        -2 bedrooms,  living, kitchen,storeroom</p>
-                        <a th:href="@{~/login}" class="btn section-btn">Intrested</a>
-                    </div>
-                </div>
-            </div>
+            </tr>
 
 
 <!--   city ends here-->
@@ -454,11 +164,6 @@
         </div>
     </div>
 </section>
-
-
-
-
-
 
 
 
@@ -560,7 +265,9 @@
 <!--                                Your image will upload here-->
                                 <h2><img th:src="@{~/img/rabi1.jpg}">
                                 </h2>
-                                <h1 style="background-color: whitesmoke">Rabindra Wagle</h1>
+                                <h1 style="background-color: whitesmoke" th:text="${logged.userName}"></h1>
+                                <h3 style="color: whitesmoke" th:text="${logged.email}"></h3>
+                                <h3 style="color: whitesmoke" th:text="${logged.mobileNo}"></h3>
 
                             </div>
                                 </div>

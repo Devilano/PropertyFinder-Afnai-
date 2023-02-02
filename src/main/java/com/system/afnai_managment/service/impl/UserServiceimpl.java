@@ -41,7 +41,7 @@ public class UserServiceimpl implements UserService {
     @Override
     public String saveUser(UserPojo userPojo) {
         User user = new User();
-        user.setUserName(userPojo.getUser_name());
+        user.setUseernname(userPojo.getUserName());
         user.setEmail(userPojo.getEmail());
         user.setMobileNo(userPojo.getMobileNo());
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();

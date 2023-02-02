@@ -11,7 +11,7 @@ import lombok.*;
 
 public class UserPojo {
 
-    private String user_name;
+    private String userName;
     private Integer id;
     private String email;
     private String mobileNo;
@@ -20,7 +20,7 @@ public class UserPojo {
     public UserPojo(User user){
         this.id=user.getId();
         this.email=user.getEmail();
-        this.user_name=user.getUsername();
+        this.userName=user.getUseernname();
         this.mobileNo=user.getMobileNo();
         this.password=user.getPassword();
 

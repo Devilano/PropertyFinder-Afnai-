@@ -31,20 +31,20 @@
       </a>
     </li>
     <li>
-      <a href="#">
+      <a th:href="@{~/admin/propertyList}">
         <i class='bi bi-houses-fill' ></i>
         <span class="links_name">Property list</span>
       </a>
     </li>
     <li>
-      <a href="#">
+      <a th:href="@{~/admin/create}">
         <i class='bi bi-house-add-fill' ></i>
         <span class="links_name">Add property</span>
       </a>
     </li>
     <li>
       <a href="#">
-        <i class='bx bx-coin-stack' ></i>
+        <i class='bx bx-coin-stack'></i>
         <span class="links_name">Stock</span>
       </a>
     </li>
@@ -147,7 +147,7 @@
           <tr th:each="user:${userList}">
             <td th:text="${user.email}"></td>
             <td th:text="${user.mobileNo}"></td>
-<!--            <td th:text="${user.user_name}"></td>-->
+            <td th:text="${user.useernname}"></td>
             <td>
               <a th:href="@{~/user/edit/}+${user.id}">Edit</a> |
               <a th:href="@{~/user/delete/}+${user.id}">Delete</a>

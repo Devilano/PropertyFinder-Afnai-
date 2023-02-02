@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<table>
+  <thead>
+  <tr>
+    <th>PropertyName</th>
+    <th>AreaSq</th>
+    <th>Room</th>
+    <th>Location</th>
+    <th>City</th>
+    <th>Owner Name</th>
+    <th>E-mail</th>
+    <th>Contact</th>
+    <th>OwnerAddress</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="property:${propertyList}">
+    <td th:text="${property.propertyName}"></td>
+    <td th:text="${property.areaSq}"></td>
+    <td th:text="${property.room}"></td>
+    <td th:text="${property.location}"></td>
+    <td th:text="${property.PCity}"></td>
+    <td th:text="${property.ownerName}"></td>
+    <td th:text="${property.email}"></td>
+    <td th:text="${property.mobileNo}"></td>
+    <td th:text="${property.OwnerAddress}"></td>
+    <td>
+      <a th:href="@{~/property/edit/}+${teams.id}">Edit</a> |
+      <a th:href="@{~/property/delete/}+${teams.id}">Delete</a>
+    </td>
+
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

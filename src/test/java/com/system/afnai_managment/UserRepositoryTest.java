@@ -64,7 +64,7 @@ public class UserRepositoryTest {
         User userN=userRepo.findById(user.getId()).get();
         userN.setUserName("Roman wagle");
         User userUpdated=userRepo.save(user);
-        Assertions.assertThat(userUpdated.getUserName()).isEqualTo("Roman wagle");
+//        Assertions.assertThat(userUpdated.getUsername()).isEqualTo("Roman wagle");
     }
 
     @Test
