@@ -6,6 +6,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.Set;
 
 @Builder
 @Getter
@@ -18,7 +19,7 @@ public class User implements UserDetails {
     @Id
     @SequenceGenerator(name = "Afnai_user_seq_gen", sequenceName = "Afnai_user_id_seq", allocationSize = 1)
     @GeneratedValue(generator = "Afnai_user_seq_gen", strategy = GenerationType.SEQUENCE)
-    private Integer id;
+    private Integer U_id;
 
     @Column(nullable = false)
     private String email;
@@ -30,6 +31,14 @@ public class User implements UserDetails {
 
     @Column(name = "mobile_no")
     private String mobileNo;
+
+    private String image;
+
+    @Transient
+    private String imageBase64;
+
+
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

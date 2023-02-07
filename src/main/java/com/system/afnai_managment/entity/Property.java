@@ -1,11 +1,10 @@
 package com.system.afnai_managment.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
+import java.util.Set;
+@Builder
 @Getter
 @Setter
 @AllArgsConstructor
@@ -16,7 +15,7 @@ public class Property{
     @Id
     @SequenceGenerator(name = "gp_user_seq_gen", sequenceName = "gp_user_id_seq", allocationSize = 1)
     @GeneratedValue(generator = "gp_user_seq_gen", strategy = GenerationType.SEQUENCE)
-    private Integer id;
+    private Integer P_id;
     @Column(name="propertyname", nullable = false)
     private String propertyName;
 
@@ -45,6 +44,12 @@ public class Property{
 
     @Column(nullable = false)
     private String OwnerAddress;
+
+
+    private String image;
+
+    @Transient
+    private String imageBase64;
 
 
 }

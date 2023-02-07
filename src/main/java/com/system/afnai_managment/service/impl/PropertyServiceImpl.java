@@ -7,15 +7,21 @@ import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class PropertyServiceImpl implements PropertyService {
     public final PropertyRepo propertyRepo;
+    public static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "/House";
 
 
-    public String saveProperty(PropertyPojo propertyPojo) {
+
+    public String saveProperty(PropertyPojo propertyPojo) throws IOException {
         Property property = new Property();
         property.setPropertyName(propertyPojo.getPropertyName());
         property.setEmail(propertyPojo.getEmail());
@@ -27,12 +33,21 @@ public class PropertyServiceImpl implements PropertyService {
         property.setLocation(propertyPojo.getLocation());
         property.setPCity(propertyPojo.getPCity());
         property.setOwnerAddress(propertyPojo.getOwnerAddress());
+        if(propertyPojo.getImage()!=null){
+            StringBuilder fileNames = new StringBuilder();
+            System.out.println(UPLOAD_DIRECTORY);
+            Path fileNameAndPath = Paths.get(UPLOAD_DIRECTORY, propertyPojo.getImage().getOriginalFilename());
+            fileNames.append(propertyPojo.getImage().getOriginalFilename());
+            Files.write(fileNameAndPath, propertyPojo.getImage().getBytes());
+            property.setImage(propertyPojo.getImage().getOriginalFilename());
+        }
+
         propertyRepo.save(property);
         return "created";
     }
 
     @Override
-    public Property fetchById(Integer id) {
+    public Property fetchById(Integer P_id) {
         return null;
     }
 
@@ -41,8 +56,8 @@ public class PropertyServiceImpl implements PropertyService {
         return propertyRepo.findAll();
     }
     @Override
-    public void deleteById(Integer id) {
-        propertyRepo.deleteById(id);
+    public void deleteById(Integer P_id) {
+        propertyRepo.deleteById(P_id);
     }
 
 

@@ -1,17 +1,15 @@
 package com.system.afnai_managment.pojo;
 import com.system.afnai_managment.entity.Property;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
+import lombok.*;
+import org.springframework.web.multipart.MultipartFile;
+@Builder
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class PropertyPojo {
 
-    private Integer id;
+    private Integer P_id;
     private String propertyName;
     private String areaSq;
     private String room;
@@ -21,9 +19,11 @@ public class PropertyPojo {
     private String email;
     private String mobileNo;
     private String OwnerAddress;
+    private MultipartFile image;
+
 
     public PropertyPojo(Property property){
-        this.id= property.getId();
+        this.P_id= property.getP_id();
         this.propertyName=property.getPropertyName();
         this.ownerName=property.getOwnerName();
         this.email=property.getEmail();

@@ -140,7 +140,10 @@
             <th>Email</th>
             <th>MobileNo</th>
             <th>userName</th>
+            <th>Image</th>
+
             <th>Action</th>
+
           </tr>
           </thead>
           <tbody>
@@ -149,8 +152,11 @@
             <td th:text="${user.mobileNo}"></td>
             <td th:text="${user.useernname}"></td>
             <td>
-              <a th:href="@{~/user/edit/}+${user.id}">Edit</a> |
-              <a th:href="@{~/user/delete/}+${user.id}">Delete</a>
+              <img th:src="'data:image/png;base64,'+${user.imageBase64}" width="40" height="40"/>
+            </td>
+            <td>
+              <a th:href="@{~/user/edit/}+${user.U_id}">Edit</a> |
+              <a th:href="@{~/user/delete/}+${user.U_id}">Delete</a>
             </td>
 
           </tr>

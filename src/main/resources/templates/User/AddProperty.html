@@ -13,12 +13,13 @@
     <header>
         <img th:src="@{~/img/A.png}">
     </header>
-    <form class="signup-form" th:method="post" th:action="@{/admin/save}" th:object="${property}">
-
+    <form class="signup-form" th:method="post" th:action="@{/admin/save}" th:object="${property}"  enctype="multipart/form-data" >
         <div class="id">
 
-            <input type="text"  hidden="hidden" placeholder="Id"th:field="*{id}" th:value="${property.id}">
+            <input type="text"  hidden="hidden" placeholder="Id"th:field="*{P_id}" th:value="${property.P_id}">
         </div>
+        <input type="file" name="image" accept="image/*" class="form-control-file">
+
 
         <div class="field nameS">
             <div class="input-area">

@@ -113,13 +113,6 @@
         </div>
     </div>
 </section>
-
-
-
-
-
-
-
 <section id="blog" data-stellar-background-ratio="0.5">
     <div class="container">
         <div class="row">
@@ -131,12 +124,15 @@
                 </div>
             </div>
 
+            <form class="signup-form" th:method="post" th:action="@{/user/saveOrder}" th:object="${user}" enctype="multipart/form-data">
             <tr th:each="property:${propertyList}">
             <div class="col-md-6 col-sm-6">
                 <!-- BLOG THUMB -->
                 <div class="media blog-thumb">
                     <div class="media-object media-left">
-                        <a th:href="@{~/img/House/house1.jpg}" class="image-popup"><img th:src="@{~/img/House/house1.jpg}" class="img-responsive" alt=""></a>
+                        <td> <img th:src="'data:image/png;base64,'+${prperty.imageBase64}" width="100" height="100">
+
+                        <a th:src="'data:image/png;base64,'+${property.imageBase64}" class="image-popup"><img th:src="'data:image/png;base64,'+${property.imageBase64}" class="img-responsive" alt=""></a>
                     </div>
                     <div class="media-body blog-info">
                         <small><i class="fa fa-clock-o"></i> December 22, 2017</small>
@@ -156,7 +152,7 @@
                 </div>
             </div>
             </tr>
-
+            </form>
 
 <!--   city ends here-->
 
@@ -164,15 +160,6 @@
         </div>
     </div>
 </section>
-
-
-
-
-
-
-
-
-
 
 <!-- FOOTER -->
 <footer data-stellar-background-ratio="0.5">
@@ -262,9 +249,9 @@
 
                         <div class="col-md-12 col-sm-12">
                             <div class="modal-title">
-<!--                                Your image will upload here-->
-                                <h2><img th:src="@{~/img/rabi1.jpg}">
-                                </h2>
+                                <img th:src="@{~/img/rabi1.png}" class="img-responsive" alt="">
+<!--                                <img th:src="'data:image/png;base64,'+${logged.imageBase64}" width="45" height="45"/>-->
+
                                 <h1 style="background-color: whitesmoke" th:text="${logged.userName}"></h1>
                                 <h3 style="color: whitesmoke" th:text="${logged.email}"></h3>
                                 <h3 style="color: whitesmoke" th:text="${logged.mobileNo}"></h3>
@@ -276,10 +263,6 @@
                 <div ><a th:href="@{~/logout}" class="section-btn" >Logout
                 </a>
                 </div>
-
-
-
-
             </div>
                 </div>
             </div>

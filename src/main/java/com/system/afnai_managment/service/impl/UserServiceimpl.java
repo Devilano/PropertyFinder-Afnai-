@@ -20,7 +20,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,6 +36,8 @@ public class UserServiceimpl implements UserService {
     private final JavaMailSender getJavaMailSender;
     private final EmailCredRepo emailCredRepo;
     private final ThreadPoolTaskExecutor taskExecutor;
+    public static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "/Gallery";
+
 
     @Autowired
     @Qualifier("emailConfigBean")
@@ -39,17 +45,30 @@ public class UserServiceimpl implements UserService {
 
 
     @Override
-    public String saveUser(UserPojo userPojo) {
-        User user = new User();
+    public UserPojo saveUser(UserPojo userPojo) throws IOException {
+        User user;
+        if (userPojo.getU_id() != null) {
+            user = userRepo.findById(userPojo.getU_id()).orElseThrow(() -> new RuntimeException("Not Found"));
+        } else {
+            user = new User();
+        }
         user.setUseernname(userPojo.getUserName());
         user.setEmail(userPojo.getEmail());
         user.setMobileNo(userPojo.getMobileNo());
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodePassword = passwordEncoder.encode(userPojo.getPassword());
         user.setPassword(encodePassword);
-        userRepo.save(user);
-        return "created";
 
+        if(userPojo.getImage()!=null){
+            StringBuilder fileNames = new StringBuilder();
+            System.out.println(UPLOAD_DIRECTORY);
+            Path fileNameAndPath = Paths.get(UPLOAD_DIRECTORY, userPojo.getImage().getOriginalFilename());
+            fileNames.append(userPojo.getImage().getOriginalFilename());
+            Files.write(fileNameAndPath, userPojo.getImage().getBytes());
+            user.setImage(userPojo.getImage().getOriginalFilename());
+        }
+        userRepo.save(user);
+        return new UserPojo(user);
     }
 
     @Override
@@ -58,13 +77,13 @@ public class UserServiceimpl implements UserService {
     }
 
     @Override
-    public User fetchById(Integer id) {
-        return userRepo.findById(id).orElseThrow(()->new RuntimeException("Not Found"));
+    public User fetchById(Integer U_id) {
+        return userRepo.findById(U_id).orElseThrow(()->new RuntimeException("Not Found"));
     }
 
     @Override
-    public void delteById(Integer id) {
-        userRepo.deleteById(id);
+    public void delteById(Integer U_id) {
+        userRepo.deleteById(U_id);
     }
 
     @Override
@@ -100,6 +119,7 @@ public class UserServiceimpl implements UserService {
         User user = userRepo.findByEmail(email)
                 .orElseThrow(() -> new AppException("Invalid User email", HttpStatus.BAD_REQUEST));
         return new UserPojo(user);
+
     }
 
 
