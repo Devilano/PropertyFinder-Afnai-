@@ -322,40 +322,44 @@
             <div class="col-md-8 col-sm-8">
 
                 <!-- CONTACT FORM HERE -->
-                <form id="contact-form" role="form" action="#" method="post">
+                    <form id="contact-form" role="form" th:method="post" th:action="@{/feed/save}" th:object="${feed}">
+                        <input type="text"  hidden="hidden" placeholder="ID"th:field="*{F_id}" th:value="${feed.F_id}">
+
+
+                        <div class="col-md-6 col-sm-6">
+                            <input type="text" placeholder="Enter your Name" th:field="*{fullName}" th:value="${feed.fullName}">
+
+                        </div>
+
                     <div class="col-md-6 col-sm-6">
-                        <input type="text" class="form-control" placeholder="Full Name" id="cf-name" name="cf-name" required="">
+                        <input type="text" placeholder="Enter your Email" th:field="*{email}" th:value="${feed.email}">
+
+<!--                        <input type="email" class="form-control" placeholder="Your Email" id="cf-email" name="cf-email" required="">-->
                     </div>
 
                     <div class="col-md-6 col-sm-6">
-                        <input type="email" class="form-control" placeholder="Your Email" id="cf-email" name="cf-email" required="">
+                        <input type="text" placeholder="Your Phone" th:field="*{mobileNo}" th:value="${feed.mobileNo}">
+
+<!--                        <input type="tel" class="form-control" placeholder="Your Phone" id="cf-number" name="cf-number" required="">-->
                     </div>
 
                     <div class="col-md-6 col-sm-6">
-                        <input type="tel" class="form-control" placeholder="Your Phone" id="cf-number" name="cf-number" required="">
-                    </div>
+                        <input type="text" placeholder="Your Phone" th:field="*{budget}" th:value="${feed.budget}">
 
-                    <div class="col-md-6 col-sm-6">
-                        <select class="form-control" id="cf-budgets" name="cf-budgets">
-                            <option>Budget Level</option>
-                            <option>25 to 45lakhs</option>
-                            <option>45 to 60lakhs</option>
-                            <option>60to 1Cr</option>
-                            <option>1 to 1.5Cr</option>
-                            <option>1.5 to 3Cr</option>
-                            <option>3cr or more</option>
-                        </select>
+
                     </div>
 
                     <div class="col-md-12 col-sm-12">
-                        <textarea class="form-control" rows="6" placeholder="Your requirements" id="cf-message" name="cf-message" required=""></textarea>
+                        <input type="text" placeholder="Enter Requirement" th:field="*{requirement}" th:value="${feed.requirement}">
+
                     </div>
 
                     <div class="col-md-4 col-sm-12">
-                        <input type="submit" class="form-control" name="submit" value="Send Message">
-                    </div>
 
+                        <input type="submit" class="form-control" value="Send Message">
+                    </div>
                 </form>
+                
             </div>
 
 

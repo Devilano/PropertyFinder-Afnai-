@@ -5,42 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" th:href="@{~/css/main.css}">
+    <link rel="stylesheet" th:href="@{~/css/style.css}">
+
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 
 </head>
 <body>
-<div class="wrapper">
-    <header>
-        <img th:src="@{~/img/A.png}">
-    </header>
 
-    <form  th:action="@{/login}" method="post">
-        <div class="field email">
-            <div class="input-area">
-                <input type="text" placeholder="Enter your email..." name="email" required autofocus />
-                <i class="icon fas fa-envelope"></i>
-                <i class="error error-icon fas fa-exclamation-circle"></i>
+<!--<div class="modal fade " id="modal-form">-->
+<!--<div class="modal-dialog modal-lg">-->
+<!--<div class="modal-body">-->
+<!--    <div class="container-fluid">-->
+<!--        <div class="row">-->
+<!--            <div class="col-md-12 col-sm-12">-->
+<!--            <header>-->
+<!--        <img th:src="@{~/img/A.png}">-->
+<!--    </header>-->
+
+<!--    <form  th:action="@{/login}" method="post">-->
+<!--        <div class="field email">-->
+<!--            <div class="input-area">-->
+<!--                <input type="text" placeholder="Enter your email..." name="email" required autofocus />-->
+<!--                <i class="icon fas fa-envelope"></i>-->
+<!--                <i class="error error-icon fas fa-exclamation-circle"></i>-->
+<!--            </div>-->
+<!--            <div class="error error-txt">Email can't be blank</div>-->
+<!--        </div>-->
+
+
+<!--        <div class="field password">-->
+<!--            <div class="input-area">-->
+<!--                <input type="password" placeholder="Enter your password..." name="password" required autofocus />-->
+<!--                <i class="icon fas fa-lock"></i>-->
+<!--                <i class="error error-icon fas fa-exclamation-circle"></i>-->
+<!--            </div>-->
+<!--            <div class="error error-txt">Password can't be blank</div>-->
+<!--        </div>-->
+<!--        <div class="pass-txt"><a href="#">Forgot password?</a></div>-->
+
+<!--        <button type="submit" class="section-btn">Login</button>-->
+<!--    </form>-->
+<!--    <div class="sign-txt">Not yet member? <a th:href="@{/user/create}">Signup now</a></div>-->
+<!--</div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<section class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content modal-popup">
+
+            <div class="modal-header">
+
             </div>
-            <div class="error error-txt">Email can't be blank</div>
-        </div>
 
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
 
-        <div class="field password">
-            <div class="input-area">
-                <input type="password" placeholder="Enter your password..." name="password" required autofocus />
-                <i class="icon fas fa-lock"></i>
-                <i class="error error-icon fas fa-exclamation-circle"></i>
+                        <div class="col-md-12 col-sm-12">
+                            <div class="modal-title">
+                                        <img th:src="@{~/img/A.png}">
+                            </div>
+
+                            <!-- NAV TABS -->
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li><a th:href="@{/user/create}" aria-controls="sign_in" role="tab" data-toggle="tab">Sign Up</a></li>
+                            </ul>
+
+                            <!-- TAB PANES -->
+                            <div role="tabpanel" class="tab-pane fade in" id="sign_in">
+                                <form  th:action="@{/login}" method="post">
+                                <input type="email" class="form-control" name="email" placeholder="Email" required>
+                                        <input type="password" class="form-control" name="password" placeholder="Password" required>
+                                        <input type="submit" class="form-control" name="Log In" value="Login">
+                                        <a href="#">Forgot your password?</a>
+                                    </form>
+                                </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-            <div class="error error-txt">Password can't be blank</div>
-        </div>
-        <div class="pass-txt"><a href="#">Forgot password?</a></div>
 
-        <button type="submit">Login</button>
-    </form>
-    <div class="sign-txt">Not yet member? <a th:href="@{/user/create}">Signup now</a></div>
-</div>
+        </div>
+    </div>
+</section>
+
 </body>
-
-<!--<script th:src="@{~/Js/main.js}"></script>-->
-
 </html>

@@ -5,6 +5,7 @@ import com.system.afnai_managment.repo.PropertyRepo;
 import com.system.afnai_managment.service.PropertyService;
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -13,12 +14,12 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
+
 @Service
 @RequiredArgsConstructor
 public class PropertyServiceImpl implements PropertyService {
     public final PropertyRepo propertyRepo;
     public static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "/House";
-
 
 
     public String saveProperty(PropertyPojo propertyPojo) throws IOException {
@@ -48,7 +49,8 @@ public class PropertyServiceImpl implements PropertyService {
 
     @Override
     public Property fetchById(Integer P_id) {
-        return null;
+        return propertyRepo.findById(P_id).orElseThrow(()->new RuntimeException("Not Found"));
+
     }
 
     @Override

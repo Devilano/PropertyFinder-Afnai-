@@ -2,6 +2,7 @@ package com.system.afnai_managment.Controller;
 
 import com.system.afnai_managment.entity.Property;
 import com.system.afnai_managment.entity.User;
+import com.system.afnai_managment.pojo.FeedPojo;
 import com.system.afnai_managment.pojo.OrderPojo;
 import com.system.afnai_managment.pojo.PropertyPojo;
 import com.system.afnai_managment.pojo.UserPojo;
@@ -39,6 +40,7 @@ public class UserController {
     private final PropertyService propertyService;
     private final OrderService orderService;
     public static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "/Gallery";
+
 
 
     @GetMapping("/list")
@@ -114,17 +116,18 @@ public class UserController {
     public String editUser(@PathVariable("U_id") Integer id,Model model){
         User user =userService.fetchById(id);
         model.addAttribute("user",new UserPojo(user));
-        return "User/AddProperty";
+        return "User/create";
     }
 
-    @GetMapping("/delete/{U_id}")
-    public String deleteById(@PathVariable("U_id") Integer id){
-        userService.delteById(id);
-        return "redirect:/user/list";
-    }
+//    @GetMapping("/delete/{U_id}")
+//    public String deleteById(@PathVariable("U_id") Integer id){
+//        userService.delteById(id);
+//        return "redirect:/user/list";
+//    }
 
     @GetMapping("/home")
     public String getHome(Model model) {
+        model.addAttribute("feed", new FeedPojo());
         return "User/Home";
     }
 
@@ -137,7 +140,23 @@ public class UserController {
     @GetMapping("/property") //This is for user side
     public String getTeamsList(Model model, Principal principal) {
         List<Property> property = propertyService.fetchAll();
-        model.addAttribute("logged",userService.findByEmail(principal.getName()));
+        model.addAttribute("propertyList", property.stream().map(user ->
+                Property.builder()
+                        .P_id(user.getP_id())
+                        .imageBase64(getImageBase64(user.getImage()))
+                        .propertyName(user.getPropertyName())
+                        .areaSq(user.getAreaSq())
+                        .room(user.getRoom())
+                        .location(user.getLocation())
+                        .PCity(user.getPCity())
+                        .ownerName(user.getOwnerName())
+                        .OwnerAddress(user.getOwnerAddress())
+                        .email(user.getEmail())
+                        .mobileNo(user.getMobileNo())
+                        .build()
+        ));
+
+        model.addAttribute("logged", userService.findByEmail(principal.getName()));
         model.addAttribute("user", property);
         return "User/Property";
     }
@@ -156,7 +175,15 @@ public class UserController {
         return base64;
     }
 
+    @GetMapping("/profile")
+    public String getProfile(Model model,Principal principal) {
+        List<User> users = userService.fetchAll();
+        model.addAttribute("userList", users);
 
+        model.addAttribute("logged", userService.findByEmail(principal.getName()));
+
+        return "User/Profile";
+    }
 
 
 

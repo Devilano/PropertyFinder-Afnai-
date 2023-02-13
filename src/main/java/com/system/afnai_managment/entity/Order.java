@@ -34,5 +34,4 @@ public class Order{
     private Property property;
 
 
-
 }

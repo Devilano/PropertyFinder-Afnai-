@@ -25,24 +25,24 @@ public class UserRepositoryTest {
     @Rollback(value = false)
     public void saveUserTest(){
         User user = User.builder()
-                .userName("Rabi")
+                .useernname("Rabi")
                 .email("a@hg.com")
                 .build();
         userRepo.save(user);
-        Assertions.assertThat(user.getId()).isGreaterThan(0);
+        Assertions.assertThat(user.getU_id()).isGreaterThan(0);
     }
     @Test
     @Order(2)
     public void getUserTest(){
         User userCreated=userRepo.findById(1).get();
-        Assertions.assertThat(userCreated.getId()).isEqualTo(1);
+        Assertions.assertThat(userCreated.getU_id()).isEqualTo(1);
     }
 
     @Test
     @Order(3)
     public void getListofUserTest(){
         User user = User.builder()
-                .userName("Rabi")
+                .useernname("Rabi")
                 .email("a@hg.com")
                 .build();
         userRepo.save(user);
@@ -56,13 +56,13 @@ public class UserRepositoryTest {
     @Rollback(value = false)
     public void updateUserTest(){
         User user = User.builder()
-                .userName("Rabi")
+                .useernname("Rabi")
                 .email("a@hg.com")
                 .build();
         userRepo.save(user);
 
-        User userN=userRepo.findById(user.getId()).get();
-        userN.setUserName("Roman wagle");
+        User userN=userRepo.findById(user.getU_id()).get();
+        userN.setUseernname("Roman wagle");
         User userUpdated=userRepo.save(user);
 //        Assertions.assertThat(userUpdated.getUsername()).isEqualTo("Roman wagle");
     }
@@ -72,7 +72,7 @@ public class UserRepositoryTest {
     @Rollback(value = false)
     public void deleteUserTest(){
         User user = User.builder()
-                .userName("Rabi")
+                .useernname("Rabi")
                 .email("a@hg.com")
                 .build();
         userRepo.delete(user);
