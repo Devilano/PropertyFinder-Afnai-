@@ -1,14 +1,10 @@
 package com.system.afnai_managment.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-import java.util.Set;
+import lombok.*;
 
 @Getter
+@Builder
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
@@ -32,6 +28,10 @@ public class Order{
             foreignKey = @ForeignKey(name = "Fk_Product_Id"))
 
     private Property property;
+
+    public Integer getOrderid() {
+        return this.orderid;
+    }
 
 
 }

@@ -15,4 +15,8 @@ public interface UserService {
 
 
     UserPojo findByEmail(String email);
+
+    void processPasswordResetRequest(String email);
+
+    void resetPassword(String email, String OTP, String password);
 }

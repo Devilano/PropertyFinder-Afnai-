@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
@@ -25,9 +26,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -120,6 +119,48 @@ public class UserServiceimpl implements UserService {
                 .orElseThrow(() -> new AppException("Invalid User email", HttpStatus.BAD_REQUEST));
         return new UserPojo(user);
 
+    }
+
+    @Override
+    public void processPasswordResetRequest(String email) {
+        Optional<User> optionalUser = userRepo.findByEmail(email);
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+            String OTP = generateOTP();
+            user.setOTP(OTP);
+            userRepo.save(user);
+            sendOTPEmail(email, OTP);
+        }
+    }
+
+    @Override
+    public void resetPassword(String email, String OTP, String password) {
+        User user = userRepo.findByEmailAndOTP(email, OTP);
+        if (user != null) {
+            if (password == null) {
+                throw new IllegalArgumentException("Password cannot be null");
+            }
+            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+            String encodedPassword = passwordEncoder.encode(password);
+            user.setPassword(encodedPassword);
+            user.setOTP(null);
+            userRepo.save(user);
+        } else {
+            throw new RuntimeException();
+        }
+    }
+
+
+    private String generateOTP() {
+        return String.format("%06d", new Random().nextInt(1000000));
+    }
+
+    private void sendOTPEmail(String email, String OTP) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setTo(email);
+        message.setSubject("Password Reset OTP");
+        message.setText("Your OTP for resetting your password is: " + OTP);
+        getJavaMailSender.send(message);
     }
 
 

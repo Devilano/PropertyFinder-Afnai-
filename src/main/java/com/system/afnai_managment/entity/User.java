@@ -21,7 +21,7 @@ public class User implements UserDetails {
     @GeneratedValue(generator = "Afnai_user_seq_gen", strategy = GenerationType.SEQUENCE)
     private Integer U_id;
 
-    @Column(nullable = false)
+    @Column( name = "email",nullable = false)
     private String email;
 
     @Column(name="user_name")
@@ -31,6 +31,9 @@ public class User implements UserDetails {
 
     @Column(name = "mobile_no")
     private String mobileNo;
+
+    @Column(name = "OTP")
+    private String OTP;
 
     private String image;
 

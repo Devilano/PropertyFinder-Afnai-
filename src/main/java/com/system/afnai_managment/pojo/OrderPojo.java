@@ -12,14 +12,14 @@ import lombok.Setter;
 @AllArgsConstructor
 public class OrderPojo {
 
-    private Integer O_id;
+    private Integer orderid;
     private Integer P_id;
     private Integer U_id;
 
 
 
     public OrderPojo(Order order){
-        this.O_id= order.getOrderid();
+        this.orderid= order.getOrderid();
         this.P_id=order.getProperty().getP_id();
         this.U_id=order.getUser().getU_id();
 

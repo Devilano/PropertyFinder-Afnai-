@@ -15,10 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
@@ -103,11 +100,12 @@ public class UserController {
         Map<String, String> requestError = validateRequest(bindingResult);
         if (requestError != null) {
             redirectAttributes.addFlashAttribute("requestError", requestError);
-            return "redirect:/user/register";
+
+            return "redirect:/user/property";
         }
 
         orderService.saveOrder(orderPojo);
-        redirectAttributes.addFlashAttribute("successMsg", "User saved successfully");
+        redirectAttributes.addFlashAttribute("successMsg", "Order Given successfully");
 
         return "User/Property";
     }
@@ -119,11 +117,6 @@ public class UserController {
         return "User/create";
     }
 
-//    @GetMapping("/delete/{U_id}")
-//    public String deleteById(@PathVariable("U_id") Integer id){
-//        userService.delteById(id);
-//        return "redirect:/user/list";
-//    }
 
     @GetMapping("/home")
     public String getHome(Model model) {
@@ -138,7 +131,7 @@ public class UserController {
     }
 
     @GetMapping("/property") //This is for user side
-    public String getTeamsList(Model model, Principal principal) {
+    public String getPropertyList(Model model, Principal principal) {
         List<Property> property = propertyService.fetchAll();
         model.addAttribute("propertyList", property.stream().map(user ->
                 Property.builder()
@@ -155,7 +148,7 @@ public class UserController {
                         .mobileNo(user.getMobileNo())
                         .build()
         ));
-
+        model.addAttribute("saveorder", new OrderPojo());
         model.addAttribute("logged", userService.findByEmail(principal.getName()));
         model.addAttribute("user", property);
         return "User/Property";
@@ -185,9 +178,33 @@ public class UserController {
         return "User/Profile";
     }
 
+    @GetMapping("/request-password-reset")
+    public String requestPasswordReset() {
+        return "User/request_password_reset";
+    }
 
+    @PostMapping("/request-password-reset")
+    public String processPasswordResetRequest(@RequestParam("email") String email, Model model) {
+        userService.processPasswordResetRequest(email);
+        model.addAttribute("message", "A password reset OTP has been sent to your email. Please check your inbox!!!");
+        return "User/reset_password";
+    }
 
+    @GetMapping("/reset-password")
+    public String resetPassword(@RequestParam("email") String email, Model model) {
+        model.addAttribute("email", email);
+        return "User/reset_password";
+    }
 
+    @PostMapping("/reset-password")
+    public String processPasswordReset(@RequestParam("email") String email,
+                                       @RequestParam(required=false, name = "OTP") String OTP,
+                                       @RequestParam("password") String password,
+                                       Model model) {
+        userService.resetPassword(email, OTP, password);
+        model.addAttribute("message", "Your password has been reset successfully.");
+        return "redirect:/login";
+    }
 
 
 }

@@ -17,6 +17,7 @@ public class UserPojo {
     private String email;
     private String mobileNo;
     private String password;
+    private String OTP;
     private MultipartFile image;
 
 
@@ -26,6 +27,7 @@ public class UserPojo {
         this.userName=user.getUseernname();
         this.mobileNo=user.getMobileNo();
         this.password=user.getPassword();
+        this.OTP= user.getOTP();
 
 
     }

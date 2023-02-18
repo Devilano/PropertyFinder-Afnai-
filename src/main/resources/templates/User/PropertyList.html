@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>List user</title>
-  <link rel="stylesheet" href="style.css">
+<!--  <link rel="stylesheet" href="style.css">-->
 
   <!-- Boxicons CDN Link -->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -63,8 +63,8 @@
                   </td>
 
                   <td>
-                    <a th:href="@{~/property/edit/}+${property.P_id}">Edit</a> |
-                    <a th:href="@{~/property/delete/}+${property.P_id}">Delete</a>
+                    <a th:href="@{~/admin/edit/}+${property.P_id}">Edit</a> |
+                    <a th:href="@{~/admin/delete2/}+${property.P_id}">Delete</a>
                   </td>
 
                 </tr>

@@ -1,16 +1,19 @@
 package com.system.afnai_managment.Controller;
 
 import com.system.afnai_managment.entity.Feed;
+import com.system.afnai_managment.entity.Order;
 import com.system.afnai_managment.entity.Property;
 import com.system.afnai_managment.entity.User;
+import com.system.afnai_managment.pojo.OrderPojo;
 import com.system.afnai_managment.pojo.PropertyPojo;
-import com.system.afnai_managment.pojo.UserPojo;
 import com.system.afnai_managment.service.FeedService;
+import com.system.afnai_managment.service.OrderService;
 import com.system.afnai_managment.service.PropertyService;
 import com.system.afnai_managment.service.UserService;
 import jakarta.validation.Valid;
 import lombok.Builder;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -38,13 +41,26 @@ public class AdminController {
     private final UserService userService;
     private final PropertyService propertyService;
     private final FeedService feedService;
+    private final OrderService orderService;
 
     public static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "/Gallery";
 
     @GetMapping("/Admin")
     public String getUserListAdmin(Model model) {
         List<User> users = userService.fetchAll();
-        model.addAttribute("userList", users);
+        model.addAttribute("userList", users.stream().map(user ->
+                User.builder()
+                        .U_id(user.getU_id())
+                        .imageBase64(getImageBase64(user.getImage()))
+                        .email(user.getEmail())
+                        .useernname(user.getUseernname())
+                        .mobileNo(user.getMobileNo())
+                        .build()
+        ));
+//        model.addAttribute("orderList", new OrderPojo());
+
+//        model.addAttribute("logged", orderService.findByOrderid(principal.getName()));
+
         return "User/AdminDashboard";
     }
 
@@ -53,8 +69,6 @@ public class AdminController {
         propertyService.saveProperty(propertyPojo);
         return "User/propertylist";   //Write the pop box of sucess message
     }
-
-
 
     @GetMapping("/propertyList")    //This is for admin side to view teams and update delete
     public String getPropertyList(Model model) {
@@ -91,24 +105,23 @@ public class AdminController {
         return "/User/AddProperty";
     }
 
-    @GetMapping("/delete/{P_id}")
+    @GetMapping("/delete2/{P_id}")
     public String deleteProperty(@PathVariable("P_id") Integer P_id) {
         System.out.println("delete");
         propertyService.deleteById(P_id);
         return "redirect:/User/PropertyList";
 
     }
-    @GetMapping("/delete/{U_id}")
+    @GetMapping("/delete1/{U_id}")
     public String deleteById(@PathVariable("U_id") Integer id){
         userService.delteById(id);
         return "redirect:/user/list";
     }
 
     @GetMapping("/orderList") //This is for to see the order in the order list by Admin
-    public String getTeamsList(Model model, Principal principal) {
-        List<Property> property = propertyService.fetchAll();
-        model.addAttribute("propertyList", property);
-        model.addAttribute("logged",userService.findByEmail(principal.getName()));
+    public String getOrderList(Model model) {
+        List<Order> order =orderService.fetchAll();
+        model.addAttribute("orderList", order);
         return "User/orderList";
     }
 
@@ -146,6 +159,14 @@ public class AdminController {
         model.addAttribute("feedList", feed);
         return "User/FeedList";
     }
+
+
+    @GetMapping("/delete3/{order_id}")
+    public String deleteOrder(@PathVariable("order_id") Integer id){
+        orderService.deleteById(id);
+        return "redirect:/admin/Admin";
+    }
+
 
 
 

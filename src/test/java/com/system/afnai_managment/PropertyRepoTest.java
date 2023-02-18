@@ -46,7 +46,6 @@ public class PropertyRepoTest {
     @Test
     @Order(2)
     public  void getPropertyTest(){
-//        User userN=userRepo.findById(user.getU_id()).get();
         Property propertyCreated= propertyRepo.findById(1).get();
         Assertions.assertThat(propertyCreated.getP_id()).isEqualTo(1);
     }
