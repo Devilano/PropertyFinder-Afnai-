@@ -46,7 +46,7 @@ public class AdminController {
     public static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "/Gallery";
 
     @GetMapping("/Admin")
-    public String getUserListAdmin(Model model) {
+    public String getUserListAdmin(Model model,Principal principal) {
         List<User> users = userService.fetchAll();
         model.addAttribute("userList", users.stream().map(user ->
                 User.builder()
@@ -57,9 +57,16 @@ public class AdminController {
                         .mobileNo(user.getMobileNo())
                         .build()
         ));
-//        model.addAttribute("orderList", new OrderPojo());
 
-//        model.addAttribute("logged", orderService.findByOrderid(principal.getName()));
+        model.addAttribute("logged", userService.findByEmail(principal.getName()));
+//        List<Order> orders = orderService.fetchAll();
+//        model.addAttribute("orderList",orders.stream().map(order ->
+//                Order.builder()
+//                        .orderid(order.getOrderid())
+//                        .property()
+//
+//                ))
+
 
         return "User/AdminDashboard";
     }

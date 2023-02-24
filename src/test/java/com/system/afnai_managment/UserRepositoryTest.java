@@ -46,7 +46,6 @@ public class UserRepositoryTest {
                 .email("a@hg.com")
                 .build();
         userRepo.save(user);
-
         List<User> User=userRepo.findAll();
         Assertions.assertThat(User.size()).isGreaterThan(0);
     }
@@ -77,7 +76,7 @@ public class UserRepositoryTest {
                 .build();
         userRepo.delete(user);
         User user1=null;
-        Optional<User> optionalUser=userRepo.findByEmail("a@hg.com");
+        Optional<User> optionalUser=userRepo.findById(0);
         if (optionalUser.isPresent()){
             user1=optionalUser.get();
         }

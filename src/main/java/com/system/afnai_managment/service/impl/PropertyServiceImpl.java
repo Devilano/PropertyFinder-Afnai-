@@ -5,7 +5,6 @@ import com.system.afnai_managment.repo.PropertyRepo;
 import com.system.afnai_managment.service.PropertyService;
 import lombok.RequiredArgsConstructor;
 
-import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -19,7 +18,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PropertyServiceImpl implements PropertyService {
     public final PropertyRepo propertyRepo;
-    public static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "/House";
+    public static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "/Gallery";
 
 
     public String saveProperty(PropertyPojo propertyPojo) throws IOException {

@@ -116,13 +116,13 @@
 
             <div class="col-md-12 col-sm-12">
                 <div class="section-title">
-                    <h2> Avialable Proeprties</h2>
+                    <h2> Avialable Properties</h2>
                     <span class="line-bar">...</span>
                 </div>
             </div>
 
             <form class="signup-form" th:method="post" th:action="@{/user/saveOrder}" th:object="${saveorder}" enctype="multipart/form-data">
-            <tr th:each="property:${propertyList}">
+                <tr th:each="property:${propertyList}">
             <div class="col-md-6 col-sm-6">
                 <!-- BLOG THUMB -->
                 <div class="media blog-thumb">
@@ -137,19 +137,25 @@
                     </div>
                     <div class="media-body blog-info">
                         <small><i class="fa fa-clock-o"></i> December 22, 2017</small>
-                        <h3><td th:text="${property.propertyName}"></td>
-                            </a></h3>
+<!--                        <input type="text"  hidden="hidden" placeholder="ID"th:field="*{P_id}" th:value="${property.P_id}">-->
+                        <h3>
+                            <td th:text="${property.propertyName}"></td>
+                        </h3>
+
                         <p>Area=><td th:text="${property.areaSq}"></td>
                         </p>
+
                         <p>Room=><td  th:text="${property.room}"></td>
                         </p>
                         <p>Location=><td th:text="${property.location}"></td>
                         </p>
+
                         <p > City=><td th:text="${property.PCity}"></td>
                         </p>
 
+
                         <input type="text" hidden="hidden"   name="U_id" th:value="${logged.u_id}">
-                        <input type="text" hidden="hidden" name="P_id"  th:value="${property.P_id}">
+<!--                        <input type="text" hidden="hidden" name="P_id"  th:value="${property.P_id}">-->
 
                         <input type="submit" value="Intrested" class="btn section-btn">
 

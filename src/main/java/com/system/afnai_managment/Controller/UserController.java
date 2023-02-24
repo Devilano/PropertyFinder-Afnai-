@@ -4,13 +4,14 @@ import com.system.afnai_managment.entity.Property;
 import com.system.afnai_managment.entity.User;
 import com.system.afnai_managment.pojo.FeedPojo;
 import com.system.afnai_managment.pojo.OrderPojo;
-import com.system.afnai_managment.pojo.PropertyPojo;
 import com.system.afnai_managment.pojo.UserPojo;
 import com.system.afnai_managment.service.OrderService;
 import com.system.afnai_managment.service.PropertyService;
 import com.system.afnai_managment.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -23,10 +24,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.security.Principal;
-import java.util.Base64;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 @RequiredArgsConstructor
@@ -131,7 +129,15 @@ public class UserController {
     }
 
     @GetMapping("/property") //This is for user side
-    public String getPropertyList(Model model, Principal principal) {
+    public String getPropertyList(Model model, Principal principal, Authentication authentication) {
+        if (authentication!=null){
+            Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
+            for (GrantedAuthority grantedAuthority : authorities) {
+                if (grantedAuthority.getAuthority().equals("Admin")) {
+                    return "redirect:/admin/Admin";
+                }
+            }
+        }
         List<Property> property = propertyService.fetchAll();
         model.addAttribute("propertyList", property.stream().map(user ->
                 Property.builder()
@@ -153,6 +159,8 @@ public class UserController {
         model.addAttribute("user", property);
         return "User/Property";
     }
+
+
 
     public String getImageBase64(String fileName) {
         String filePath = System.getProperty("user.dir") + "/Gallery/";

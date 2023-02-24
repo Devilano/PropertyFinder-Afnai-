@@ -25,7 +25,7 @@
       </a>
     </li>
     <li>
-      <a th:href="@{~/user/property}">
+      <a th:href="@{~/admin/property}">
         <i class='bi bi-house-door-fill' ></i>
         <span class="links_name">Property</span>
       </a>
@@ -69,7 +69,7 @@
       </a>
     </li>
     <li class="log_out">
-      <a href="#">
+      <a th:href="@{~/logout}">
         <i class='bx bx-log-out'></i>
         <span class="links_name">Log out</span>
       </a>
@@ -89,8 +89,12 @@
       <i class='bx bx-search' ></i>
     </div>
     <div class="profile-details">
-      <img th:src="@{~/img/rabi.jpg}" alt="">
-      <span class="admin_name">Rabindra Wagle</span>
+<!--      <td>-->
+<!--        <img th:src="'data:image/png;base64,'+${logged.imageBase64}" width="40" height="40"/>-->
+<!--      </td>-->
+      <img th:src="@{~/img/a ravi.jpg}" alt="">
+      <span class="admin_name"><td th:text="${logged.userName}"></td>
+</span>
       <i class='bx bx-chevron-down' ></i>
     </div>
   </nav>
@@ -182,8 +186,6 @@
             <!--                                    <td>-->
             <!--                                        <img th:src="'data:image/png;base64,'+${order.getUser().getimageBase64()}" width="40" height="40"/>-->
             <!--                                    </td>-->
-
-
             <td th:text="${order.getUser().getUseernname()}"></td>
 
             <td th:text="${order.getProperty().getPropertyName()}"></td>

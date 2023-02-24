@@ -3,10 +3,12 @@ package com.system.afnai_managment.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Builder
 @Getter
@@ -40,13 +42,23 @@ public class User implements UserDetails {
     @Transient
     private String imageBase64;
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "users_roles",
+            foreignKey = @ForeignKey(name = "FK_users_roles_userId"),
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "U_id"),
+            inverseForeignKey = @ForeignKey(name = "FK_users_roles_roleId"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"),
+            uniqueConstraints = @UniqueConstraint(name = "UNIQUE_users_roles_userIdRoleId",
+                    columnNames = {"user_id", "role_id"})
+    )
+    private Collection<Role> roles;
+
 
 
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
-    }
+        return getRoles().stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());    }
 
     @Override
     public String getUsername() {
